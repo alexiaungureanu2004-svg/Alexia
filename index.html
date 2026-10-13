@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f4ee">
+  <meta name="description" content="Piese LOOMY create la comandă, pe măsurile tale. Descoperă colecțiile și configurează-ți profilul de fit.">
+  <title>LOOMY — făcută să ți se potrivească</title>
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="announcement"><span>Atelier în România</span><span class="announcement-center">Fiecare piesă este creată la comandă, pentru tine.</span><a href="#cum-lucram">Cum funcționează <span aria-hidden="true">↗</span></a></div>
+  <header class="site-header">
+    <button class="icon-button mobile-menu" aria-label="Deschide meniul" id="menu-toggle">☰</button>
+    <a class="wordmark" href="#top" aria-label="LOOMY, pagina principală">LOOMY<span>®</span><small>MADE FOR YOUR FORM</small></a>
+    <nav class="main-nav" aria-label="Navigare principală">
+      <a href="#produse">Colecție</a><a href="#noutati">Noutăți</a><a href="#loomy-basic">Loomy Basic</a><a href="#cum-lucram">Made to measure</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-button search-trigger" aria-label="Caută produse" id="search-trigger">⌕</button>
+      <button class="icon-button account-trigger" aria-label="Contul meu" id="account-trigger">♙</button>
+      <button class="bag-trigger" id="bag-trigger" aria-label="Deschide coșul">COȘ <span id="bag-count">0</span></button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="eyebrow-line"></span> ATELIER · BUCUREȘTI</div>
+        <h1>Nu tu te potrivești<br>hainei. <em>Haina ție.</em></h1>
+        <p>Fiecare piesă LOOMY este făcută la comandă, pe măsurile tale. Design contemporan, croit cu grijă și gândit să te simți tu.</p>
+        <div class="hero-buttons"><a class="button button-dark" href="#produse">Descoperă colecția <span>↗</span></a><button class="text-button" id="open-measurements">Creează-ți profilul de fit <span>→</span></button></div>
+        <div class="hero-note"><span class="note-star">✳</span><span><b>Croită pentru corpul tău.</b><br>Tu alegi modelul. Noi ne ocupăm de potrivire.</span></div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-image"></div>
+        <div class="image-label"><span>01 / 03</span><span>THE FORM OF YOU</span></div>
+        <div class="hero-stamp">MADE<br><i>for</i><br>YOU</div>
+      </div>
+    </section>
+
+    <section class="promise-strip" aria-label="Avantajele atelierului">
+      <div><span>01</span> Creată la comandă</div><i>✳</i><div><span>02</span> Potrivire personalizată</div><i>✳</i><div><span>03</span> Realizată în România</div><i>✳</i><div><span>04</span> Gândită să dureze</div>
+    </section>
+
+    <section class="collection-section section-wrap" id="produse">
+      <div class="section-heading"><div><div class="eyebrow">GĂSEȘTE-ȚI FORMA</div><h2>O piesă pentru <em>fiecare versiune</em> a ta.</h2></div><a class="under-link" href="#catalog">Vezi toate produsele <span>↗</span></a></div>
+      <div class="category-grid">
+        <a class="category-card category-dresses" href="#catalog" data-filter="Rochii"><span class="cat-index">01 / CATEGORIE</span><span class="category-title">Rochii</span><span class="category-link">Descoperă <b>↗</b></span></a>
+        <a class="category-card category-corset" href="#catalog" data-filter="Corsete"><span class="cat-index">02 / CATEGORIE</span><span class="category-title">Corsete</span><span class="category-link">Descoperă <b>↗</b></span></a>
+        <a class="category-card category-tailoring" href="#catalog" data-filter="Tailoring"><span class="cat-index">03 / CATEGORIE</span><span class="category-title">Tailoring</span><span class="category-link">Descoperă <b>↗</b></span></a>
+        <a class="category-card category-separates" href="#catalog" data-filter="Separates"><span class="cat-index">04 / CATEGORIE</span><span class="category-title">Separates</span><span class="category-link">Descoperă <b>↗</b></span></a>
+      </div>
+    </section>
+
+    <section class="made-section" id="cum-lucram">
+      <div class="made-art"><div class="made-art-image"></div><div class="art-caption">ATELIER NOTES<br>BUCHAREST, RO</div><span class="scribble">with care,<br>for you</span></div>
+      <div class="made-copy"><div class="eyebrow"><span class="eyebrow-line"></span> MADE TO MEASURE, MADE PERSONAL</div><h2>Poartă ceva<br>care <em>te cunoaște.</em></h2><p>Nu există două corpuri la fel. De aceea, la LOOMY, fiecare comandă începe cu tine: cum îți place să se așeze, cum vrei să te simți și în ce vrei să te miști.</p>
+        <div class="steps"><div><span>01</span><p><b>Alege piesa</b><small>Găsește modelul care vorbește despre tine.</small></p></div><div><span>02</span><p><b>Spune-ne măsurile tale</b><small>Folosește profilul de fit sau alege S, M ori L.</small></p></div><div><span>03</span><p><b>O croim pentru tine</b><small>Atelierul nostru începe să lucreze la piesa ta.</small></p></div></div>
+        <button class="button button-dark" id="open-measurements-2">Creează-ți profilul de fit <span>↗</span></button>
+      </div>
+    </section>
+
+    <section class="products-section section-wrap" id="noutati">
+      <div class="section-heading"><div><div class="eyebrow">PROASPĂT DIN ATELIER</div><h2>Noutăți <em>cu personalitate.</em></h2></div><div class="slider-controls"><button class="round-control" aria-label="Produse anterioare" id="products-prev">←</button><button class="round-control" aria-label="Produse următoare" id="products-next">→</button></div></div>
+      <div class="product-grid" id="new-arrivals"></div>
+    </section>
+
+    <section class="basic-section" id="loomy-basic"><div class="basic-top"><div><div class="eyebrow">LOOMY, ÎN FIECARE ZI</div><h2>Lucrurile bune<br><em>încep cu baza.</em></h2></div><div class="basic-intro"><p>Piese esențiale, cu aceeași grijă pentru formă. Basic-ul tău, făcut să ți se potrivească.</p><a class="under-link" href="#catalog" data-basic-link="true">Descoperă Loomy Basic <span>↗</span></a></div></div><div class="basic-banner"><div class="basic-image"></div><span class="basic-callout">THE<br>EVERYDAY<br>EDIT</span><div class="basic-banner-bottom"><span>01 — 04</span><span>LOOMY BASIC / ESSENTIALS, REDEFINED</span><a href="#catalog" data-basic-link="true">EXPLOREAZĂ <b>↗</b></a></div></div></section>
+
+    <section class="catalog-section section-wrap" id="catalog"><div class="section-heading"><div><div class="eyebrow">PIESE CREATE PENTRU TINE</div><h2>Descoperă <em>colecția.</em></h2></div><label class="filter-label">FILTRARE <select id="category-filter" aria-label="Filtrează după categorie"><option value="Toate">Toate piesele</option><option>Rochii</option><option>Corsete</option><option>Tailoring</option><option>Separates</option><option>Loomy Basic</option></select></label></div><div class="product-grid catalog-grid" id="catalog-products"></div></section>
+
+    <section class="fit-band"><div class="fit-band-copy"><div class="eyebrow">CORPUL TĂU. ALEGERILE TALE.</div><h2>Știi ce porți.<br>Noi știm <em>cum să-l croim.</em></h2><p>Alege S, M sau L pentru o experiență simplă, ori adaugă măsurile tale pentru o potrivire mai personală.</p><button class="button button-light" id="open-measurements-3">Configurează fit-ul tău <span>↗</span></button></div><div class="fit-diagram" aria-hidden="true"><div class="measure-circle"></div><span class="measure-label measure-one">BUST — WAIST — HIP</span><span class="measure-label measure-two">YOUR FORM, YOUR RULES</span><span class="measure-cross">+</span></div></section>
+
+    <section class="social-proof section-wrap" id="reviews"><div class="proof-header"><div class="eyebrow">LOOMY, PRIN OCHII TĂI</div><h2>Încredere, cusută <em>pas cu pas.</em></h2><p>Recenziile verificate vor fi afișate aici după primele comenzi.</p></div><div class="review-empty"><div class="quote-mark">“</div><p>Prima ta experiență LOOMY ar putea fi povestea de aici.</p><span>ÎȚI MULȚUMIM CĂ EȘTI LA ÎNCEPUTUL CĂLĂTORIEI</span></div></section>
+
+    <section class="newsletter"><div><div class="eyebrow">SCRISORI DIN ATELIER</div><h2>Intră în lumea <em>LOOMY.</em></h2><p>Noutăți de atelier, colecții noi și note despre cum se construiește o piesă făcută pentru tine.</p></div><form id="newsletter-form"><label for="email-input" class="visually-hidden">Adresa ta de email</label><input id="email-input" type="email" placeholder="Adresa ta de email" required><button type="submit" aria-label="Abonează-te">→</button><small>Prin abonare, ești de acord cu politica noastră de confidențialitate.</small></form></section>
+  </main>
+
+  <footer class="site-footer"><div class="footer-main"><div class="footer-brand"><a class="wordmark wordmark-footer" href="#top">LOOMY<span>®</span><small>MADE FOR YOUR FORM</small></a><p>Făcută la comandă.<br>Făcută să ți se potrivească.</p><div class="social-links"><a href="#reviews">INSTAGRAM ↗</a><a href="#reviews">PINTEREST ↗</a></div></div><div class="footer-column"><b>DESCOPERĂ</b><a href="#produse">Colecție</a><a href="#noutati">Noutăți</a><a href="#loomy-basic">Loomy Basic</a><a href="#cum-lucram">Made to measure</a></div><div class="footer-column"><b>AI NEVOIE DE AJUTOR?</b><a href="#cum-lucram">Cum comand?</a><a href="#cum-lucram">Măsurile mele</a><a href="#footer-info">Livrare & retur</a><a href="#footer-info">Întrebări frecvente</a></div><div class="footer-column"><b>LEGAL</b><a href="#footer-info">Termeni și condiții</a><a href="#footer-info">Confidențialitate</a><a href="#footer-info">Contact</a><span id="footer-info">București, România</span></div></div><div class="footer-bottom"><span>© 2026 LOOMY THE BRAND</span><span>MADE WITH CARE IN ROMANIA</span><a href="#top">ÎNAPOI SUS ↑</a></div></footer>
+
+  <div class="overlay" id="overlay"></div>
+  <aside class="drawer" id="cart-drawer" aria-label="Coșul de cumpărături" aria-hidden="true"><div class="drawer-head"><div><div class="eyebrow">ALEGERI BUNE</div><h2>Coșul tău <em>LOOMY.</em></h2></div><button class="close-button" data-close aria-label="Închide coșul">×</button></div><div class="cart-items" id="cart-items"></div><div class="cart-empty" id="cart-empty"><span>✳</span><p>Încă nu ai ales nimic.<br>Următoarea ta piesă preferată e aproape.</p><button class="text-button" data-close>Descoperă colecția →</button></div><div class="cart-bottom" id="cart-bottom"><div><span>Subtotal</span><b id="cart-subtotal">0 lei</b></div><p>Costul de livrare se calculează la pasul următor.</p><button class="button button-dark" id="checkout-button">Mergi la checkout <span>↗</span></button><small>Demo de prezentare · checkout-ul nu este conectat</small></div></aside>
+
+  <section class="modal" id="measure-modal" role="dialog" aria-modal="true" aria-labelledby="measure-title" aria-hidden="true"><div class="modal-panel"><button class="close-button modal-close" data-close aria-label="Închide formularul">×</button><div class="modal-eyebrow">PERSONAL FIT PROFILE · 01 / 02</div><h2 id="measure-title">Hai să aflăm <em>cum ți se potrivește.</em></h2><p class="modal-intro">Completează ce știi deja. Profilul rămâne salvat doar în acest browser în această demonstrație.</p><form id="measure-form"><fieldset class="size-choice"><legend>Mărimea ta uzuală</legend><div class="size-buttons"><label><input type="radio" name="size" value="S"><span>S</span></label><label><input type="radio" name="size" value="M" checked><span>M</span></label><label><input type="radio" name="size" value="L"><span>L</span></label></div></fieldset><label class="field-label">TIPUL TĂU DE CORP<select name="bodyType"><option value="">Alege opțional</option><option>Clepsidră</option><option>Pară</option><option>Măr</option><option>Triunghi inversat</option><option>Coloană</option><option>Prefer să nu aleg</option></select></label><div class="form-grid"><label class="field-label">ÎNĂLȚIME <span>cm</span><input type="number" name="height" min="100" max="220" placeholder="ex. 168"></label><label class="field-label">GREUTATE <span>kg</span><input type="number" name="weight" min="30" max="250" placeholder="ex. 62"></label><label class="field-label">BUST <span>cm · opțional</span><input type="number" name="bust" min="50" max="180" placeholder="ex. 88"></label><label class="field-label">TALIE <span>cm · opțional</span><input type="number" name="waist" min="40" max="160" placeholder="ex. 70"></label><label class="field-label">ȘOLDURI <span>cm · opțional</span><input type="number" name="hips" min="60" max="200" placeholder="ex. 96"></label><label class="field-label">CUM ÎȚI PLACE SĂ SE AȘEZE? <select name="fit"><option>Pe corp</option><option>Lejer</option><option>Oversized</option><option>Depinde de piesă</option></select></label></div><div class="privacy-note"><span>♡</span><p>Aceste date sunt sensibile. Cere doar ce te ajută la croi. Într-un magazin real, salvează profilul numai cu acordul clientei, explică ștergerea și protejează datele conform GDPR.</p></div><button class="button button-dark save-profile" type="submit">Salvează profilul pe acest dispozitiv <span>↗</span></button><button class="clear-profile" type="button" id="clear-profile">Șterge profilul salvat</button><div class="profile-message" id="profile-message" role="status"></div></form></div></section>
+
+  <section class="modal search-modal" id="search-modal" role="dialog" aria-modal="true" aria-labelledby="search-title" aria-hidden="true"><div class="modal-panel"><button class="close-button modal-close" data-close aria-label="Închide căutarea">×</button><div class="modal-eyebrow">CAUTĂ ÎN COLECȚIE</div><h2 id="search-title">Ce cauți <em>astăzi?</em></h2><label for="search-input" class="visually-hidden">Caută produse</label><input class="search-input" id="search-input" placeholder="Rochie, corset, tailoring…"><div class="search-results" id="search-results"></div></div></section>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
