@@ -23,42 +23,6 @@ a { color: inherit; text-decoration: none; }
 img { display: block; max-width: 100%; }
 ::selection { color: var(--white); background: var(--olive-dark); }
 
-/* LOOMY's dramatic evening palette: ink, warm cream and restrained brass. */
-.site-header { background: rgba(23,22,20,.95); border-bottom-color: rgba(236,225,204,.14); }
-.hero { background: #201e1a; }
-.hero-copy > p, .hero-note, .made-copy > p { color: #c2bbae; }
-.hero-note b { color: var(--ink); }
-.hero-visual { background: #302a23; }
-.promise-strip { background: #1b1916; }
-.promise-strip i { color: #76664d; }
-.made-section { background: #201e1a; }
-.made-copy { color: var(--ink); }
-.steps, .steps > div { border-color: #494238; }
-.product-image { background: #302c26; }
-.product-badge, .heart-button { color: #241f18; background: rgba(243,237,226,.94); }
-.basic-section { background: #29241d; }
-.basic-top .eyebrow { color: #d4bd94; }
-.basic-intro p { color: #d0c7b8; }
-.fit-band { background: #211e19; }
-.fit-band .eyebrow { color: #d4bd94; }
-.fit-band-copy > p { color: #c2bbae; }
-.measure-label { color: #e4d4b7; background: #211e19; }
-.newsletter { background: #211f1b; }
-.newsletter input { border-color: #575045; color: var(--ink); }
-.newsletter form button { color: #211e19; background: #c4a875; }
-.site-footer { background: #100f0e; }
-.field-label { color: #d1c9bc; }
-.privacy-note { color: #d5cdbc; background: #2a2721; }
-.profile-message { color: #d7c197; }
-.round-control:hover, .size-chip:hover, .size-chip.selected { color: #211e19; background: #c4a875; border-color: #c4a875; }
-.button-dark { color: #1d1a15; background: #d6bd91; }
-.button-dark:hover { color: #211e19; background: #e5d3b1; }
-.button-light { color: #f2ede3; background: #302b24; border-color: #595044; }
-.button-light:hover { background: #3a332a; }
-.add-button { border-color: #c4a875; }
-.add-button:hover { color: #e0c999; border-color: #e0c999; }
-.toast { color: #211e19; background: #c4a875; }
-
 .announcement { min-height: 35px; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 6px 4.4%; color: #f7f5ef; background: var(--olive-dark); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; }
 .announcement-center { opacity: .82; }
 .announcement a { display: flex; align-items: center; gap: 7px; }
@@ -103,7 +67,7 @@ h1 em, h2 em { font-weight: 500; }
 .hero-note b { color: var(--ink); font-size: 12px; font-weight: 600; }
 .note-star { color: var(--olive); font-size: 20px; line-height: 1; }
 .hero-visual { position: relative; min-height: 500px; overflow: hidden; background: #c9b9a5; }
-.hero-image { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 58%, rgba(30,27,22,.14)), url("https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1600&q=90") center 38% / cover; transition: transform .8s cubic-bezier(.2,.7,.3,1); }
+.hero-image { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 58%, rgba(30,27,22,.14)), url("assets/loomy/rochie-neagra-corset.jpg") center 38% / cover; transition: transform .8s cubic-bezier(.2,.7,.3,1); }
 .hero-visual:hover .hero-image { transform: scale(1.025); }
 .image-label { position: absolute; right: 7%; bottom: 6%; left: 7%; display: flex; justify-content: space-between; color: white; font-size: 9px; letter-spacing: .15em; text-shadow: 0 1px 8px #333; }
 .hero-stamp { position: absolute; top: 11%; right: 8%; width: 105px; height: 105px; display: grid; place-content: center; border: 1px solid rgba(255,255,255,.75); border-radius: 50%; color: white; font: 12px/1.05 var(--serif); letter-spacing: .16em; text-align: center; transform: rotate(9deg); }
@@ -126,10 +90,10 @@ h1 em, h2 em { font-weight: 500; }
 .category-card::before { background-position: center; background-size: cover; transition: transform .55s cubic-bezier(.2,.7,.3,1); }
 .category-card::after { background: linear-gradient(180deg, rgba(20,20,18,.22), transparent 35%, transparent 52%, rgba(20,20,18,.48)); }
 .category-card:hover::before { transform: scale(1.04); }
-.category-dresses::before { background-image: url("https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=900&q=85"); }
-.category-corset::before { background-image: url("https://images.unsplash.com/photo-1539008835657-9e8e9680c956?auto=format&fit=crop&w=900&q=85"); }
-.category-tailoring::before { background-image: url("https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=900&q=85"); }
-.category-separates::before { background-image: url("https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?auto=format&fit=crop&w=900&q=85"); }
+.category-dresses::before { background-image: url("assets/loomy/rochie-neagra-corset.jpg"); }
+.category-corset::before { background-image: url("assets/loomy/corset-catifea-albastru.jpg"); }
+.category-tailoring::before { background-image: url("assets/loomy/costum-gri.jpg"); }
+.category-separates::before { background-image: url("assets/loomy/fusta-plisata-gri.jpg"); }
 .category-card > span { z-index: 1; position: relative; }
 .cat-index { font-size: 8px; letter-spacing: .16em; }
 .category-title { margin-top: auto; font: 39px/1 var(--serif); }
@@ -138,7 +102,7 @@ h1 em, h2 em { font-weight: 500; }
 
 .made-section { display: grid; grid-template-columns: 1fr 1fr; min-height: 680px; background: #e9e5db; }
 .made-art { position: relative; min-height: 570px; overflow: hidden; background: #b8b1a5; }
-.made-art-image { position: absolute; inset: 0; background: url("https://images.unsplash.com/photo-1550614000-4895a10e1bfd?auto=format&fit=crop&w=1300&q=88") center 42% / cover; transition: transform .7s ease; }
+.made-art-image { position: absolute; inset: 0; background: url("assets/loomy/rochie-neagra-corset.jpg") center 42% / cover; transition: transform .7s ease; }
 .made-art:hover .made-art-image { transform: scale(1.03); }
 .art-caption { position: absolute; bottom: 26px; left: 27px; color: white; font-size: 9px; letter-spacing: .15em; line-height: 1.8; }
 .scribble { position: absolute; right: 8%; bottom: 12%; color: white; font: italic 29px/1.05 var(--serif); transform: rotate(-8deg); }
@@ -186,7 +150,7 @@ h1 em, h2 em { font-weight: 500; }
 .basic-intro p { margin-bottom: 18px; color: #d0d1c5; font-size: 12px; line-height: 1.8; }
 .basic-section .under-link { border-color: #d9dacd; }
 .basic-banner { position: relative; min-height: 500px; overflow: hidden; background: #77776d; }
-.basic-image { position: absolute; inset: 0; background: linear-gradient(90deg,rgba(13,16,13,.2),rgba(13,16,13,.1)), url("https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1800&q=90") center 43% / cover; transition: transform .7s ease; }
+.basic-image { position: absolute; inset: 0; background: linear-gradient(90deg,rgba(13,16,13,.2),rgba(13,16,13,.1)), url("assets/loomy/tricou-satin-bej.jpg") center 43% / cover; transition: transform .7s ease; }
 .basic-banner:hover .basic-image { transform: scale(1.025); }
 .basic-callout { z-index: 1; position: absolute; top: 17%; left: 8%; color: #f7f4ed; font: 500 clamp(42px,6vw,78px)/.9 var(--serif); letter-spacing: .05em; }
 .basic-banner-bottom { z-index: 1; position: absolute; right: 25px; bottom: 0; left: 25px; display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 60px; border-top: 1px solid rgba(255,255,255,.5); color: white; font-size: 8px; letter-spacing: .14em; }
@@ -410,3 +374,39 @@ h1 em, h2 em { font-weight: 500; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
 }
+
+/* LOOMY's dramatic evening palette: ink, warm cream and restrained brass. */
+.site-header { background: rgba(23,22,20,.95); border-bottom-color: rgba(236,225,204,.14); }
+.hero { background: #201e1a; }
+.hero-copy > p, .hero-note, .made-copy > p { color: #c2bbae; }
+.hero-note b { color: var(--ink); }
+.hero-visual { background: #302a23; }
+.promise-strip { background: #1b1916; }
+.promise-strip i { color: #76664d; }
+.made-section { background: #201e1a; }
+.made-copy { color: var(--ink); }
+.steps, .steps > div { border-color: #494238; }
+.product-image { background: #302c26; }
+.product-badge, .heart-button { color: #241f18; background: rgba(243,237,226,.94); }
+.basic-section { background: #29241d; }
+.basic-top .eyebrow { color: #d4bd94; }
+.basic-intro p { color: #d0c7b8; }
+.fit-band { background: #211e19; }
+.fit-band .eyebrow { color: #d4bd94; }
+.fit-band-copy > p { color: #c2bbae; }
+.measure-label { color: #e4d4b7; background: #211e19; }
+.newsletter { background: #211f1b; }
+.newsletter input { border-color: #575045; color: var(--ink); }
+.newsletter form button { color: #211e19; background: #c4a875; }
+.site-footer { background: #100f0e; }
+.field-label { color: #d1c9bc; }
+.privacy-note { color: #d5cdbc; background: #2a2721; }
+.profile-message { color: #d7c197; }
+.round-control:hover, .size-chip:hover, .size-chip.selected { color: #211e19; background: #c4a875; border-color: #c4a875; }
+.button-dark { color: #1d1a15; background: #d6bd91; }
+.button-dark:hover { color: #211e19; background: #e5d3b1; }
+.button-light { color: #f2ede3; background: #302b24; border-color: #595044; }
+.button-light:hover { background: #3a332a; }
+.add-button { border-color: #c4a875; }
+.add-button:hover { color: #e0c999; border-color: #e0c999; }
+.toast { color: #211e19; background: #c4a875; }

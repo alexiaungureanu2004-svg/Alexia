@@ -67,7 +67,7 @@ h1 em, h2 em { font-weight: 500; }
 .hero-note b { color: var(--ink); font-size: 12px; font-weight: 600; }
 .note-star { color: var(--olive); font-size: 20px; line-height: 1; }
 .hero-visual { position: relative; min-height: 500px; overflow: hidden; background: #c9b9a5; }
-.hero-image { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 58%, rgba(30,27,22,.14)), url("https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1600&q=90") center 38% / cover; transition: transform .8s cubic-bezier(.2,.7,.3,1); }
+.hero-image { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 58%, rgba(30,27,22,.14)), url("assets/loomy/rochie-neagra-corset.jpg") center 38% / cover; transition: transform .8s cubic-bezier(.2,.7,.3,1); }
 .hero-visual:hover .hero-image { transform: scale(1.025); }
 .image-label { position: absolute; right: 7%; bottom: 6%; left: 7%; display: flex; justify-content: space-between; color: white; font-size: 9px; letter-spacing: .15em; text-shadow: 0 1px 8px #333; }
 .hero-stamp { position: absolute; top: 11%; right: 8%; width: 105px; height: 105px; display: grid; place-content: center; border: 1px solid rgba(255,255,255,.75); border-radius: 50%; color: white; font: 12px/1.05 var(--serif); letter-spacing: .16em; text-align: center; transform: rotate(9deg); }
@@ -90,10 +90,10 @@ h1 em, h2 em { font-weight: 500; }
 .category-card::before { background-position: center; background-size: cover; transition: transform .55s cubic-bezier(.2,.7,.3,1); }
 .category-card::after { background: linear-gradient(180deg, rgba(20,20,18,.22), transparent 35%, transparent 52%, rgba(20,20,18,.48)); }
 .category-card:hover::before { transform: scale(1.04); }
-.category-dresses::before { background-image: url("https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=900&q=85"); }
-.category-corset::before { background-image: url("https://images.unsplash.com/photo-1539008835657-9e8e9680c956?auto=format&fit=crop&w=900&q=85"); }
-.category-tailoring::before { background-image: url("https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=900&q=85"); }
-.category-separates::before { background-image: url("https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?auto=format&fit=crop&w=900&q=85"); }
+.category-dresses::before { background-image: url("assets/loomy/rochie-neagra-corset.jpg"); }
+.category-corset::before { background-image: url("assets/loomy/corset-catifea-albastru.jpg"); }
+.category-tailoring::before { background-image: url("assets/loomy/costum-gri.jpg"); }
+.category-separates::before { background-image: url("assets/loomy/fusta-plisata-gri.jpg"); }
 .category-card > span { z-index: 1; position: relative; }
 .cat-index { font-size: 8px; letter-spacing: .16em; }
 .category-title { margin-top: auto; font: 39px/1 var(--serif); }
@@ -102,7 +102,7 @@ h1 em, h2 em { font-weight: 500; }
 
 .made-section { display: grid; grid-template-columns: 1fr 1fr; min-height: 680px; background: #e9e5db; }
 .made-art { position: relative; min-height: 570px; overflow: hidden; background: #b8b1a5; }
-.made-art-image { position: absolute; inset: 0; background: url("https://images.unsplash.com/photo-1550614000-4895a10e1bfd?auto=format&fit=crop&w=1300&q=88") center 42% / cover; transition: transform .7s ease; }
+.made-art-image { position: absolute; inset: 0; background: url("assets/loomy/rochie-neagra-corset.jpg") center 42% / cover; transition: transform .7s ease; }
 .made-art:hover .made-art-image { transform: scale(1.03); }
 .art-caption { position: absolute; bottom: 26px; left: 27px; color: white; font-size: 9px; letter-spacing: .15em; line-height: 1.8; }
 .scribble { position: absolute; right: 8%; bottom: 12%; color: white; font: italic 29px/1.05 var(--serif); transform: rotate(-8deg); }
@@ -150,7 +150,7 @@ h1 em, h2 em { font-weight: 500; }
 .basic-intro p { margin-bottom: 18px; color: #d0d1c5; font-size: 12px; line-height: 1.8; }
 .basic-section .under-link { border-color: #d9dacd; }
 .basic-banner { position: relative; min-height: 500px; overflow: hidden; background: #77776d; }
-.basic-image { position: absolute; inset: 0; background: linear-gradient(90deg,rgba(13,16,13,.2),rgba(13,16,13,.1)), url("https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1800&q=90") center 43% / cover; transition: transform .7s ease; }
+.basic-image { position: absolute; inset: 0; background: linear-gradient(90deg,rgba(13,16,13,.2),rgba(13,16,13,.1)), url("assets/loomy/tricou-satin-bej.jpg") center 43% / cover; transition: transform .7s ease; }
 .basic-banner:hover .basic-image { transform: scale(1.025); }
 .basic-callout { z-index: 1; position: absolute; top: 17%; left: 8%; color: #f7f4ed; font: 500 clamp(42px,6vw,78px)/.9 var(--serif); letter-spacing: .05em; }
 .basic-banner-bottom { z-index: 1; position: absolute; right: 25px; bottom: 0; left: 25px; display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 60px; border-top: 1px solid rgba(255,255,255,.5); color: white; font-size: 8px; letter-spacing: .14em; }

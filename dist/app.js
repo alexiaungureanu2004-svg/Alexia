@@ -1,12 +1,12 @@
 const products = [
-  {id:'rds308',name:'Rochie lungă neagră cu corset',category:'Rochii',price:2690,badge:'NOU',basic:false,image:'https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=900&q=86',sizes:['S','M','L']},
-  {id:'corset279',name:'Corset cu volane din catifea',category:'Corsete',price:980,badge:'ATELIER PICK',basic:false,image:'https://images.unsplash.com/photo-1539008835657-9e8e9680c956?auto=format&fit=crop&w=900&q=86',sizes:['S','M','L']},
-  {id:'sacougri',name:'Sacou gri oversized',category:'Tailoring',price:990,badge:'MADE TO ORDER',basic:false,image:'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=900&q=86',sizes:['S','M','L']},
-  {id:'fustaplisata',name:'Fustă plisată gri',category:'Separates',price:780,badge:'BESTSELLER',basic:false,image:'https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?auto=format&fit=crop&w=900&q=86',sizes:['S','M','L']},
-  {id:'basictee',name:'Tricou oversized esențial',category:'Loomy Basic',price:450,badge:'LOOMY BASIC',basic:true,image:'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=86',sizes:['S','M','L']},
-  {id:'basicshirt',name:'Top esențial din satin',category:'Loomy Basic',price:530,badge:'LOOMY BASIC',basic:true,image:'https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?auto=format&fit=crop&w=900&q=86',sizes:['S','M','L']},
-  {id:'pantaloni',name:'Pantaloni lungi roz',category:'Separates',price:820,badge:'MADE TO ORDER',basic:false,image:'https://images.unsplash.com/photo-1509551388413-e18d0ac5d495?auto=format&fit=crop&w=900&q=86',sizes:['S','M','L']},
-  {id:'rochiesatin',name:'Rochie din satin cu spate gol',category:'Rochii',price:790,badge:'NOU',basic:false,image:'https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=900&q=86',sizes:['S','M','L']}
+  {id:'rds308',name:'Rochie lungă neagră cu corset',category:'Rochii',price:2690,badge:'NOU',basic:false,image:'assets/loomy/rochie-neagra-corset.jpg',sizes:['S','M','L']},
+  {id:'corset279',name:'Corset cu volane din catifea',category:'Corsete',price:980,badge:'ATELIER PICK',basic:false,image:'assets/loomy/corset-catifea-albastru.jpg',sizes:['S','M','L']},
+  {id:'sacougri',name:'Sacou gri oversized',category:'Tailoring',price:990,badge:'MADE TO ORDER',basic:false,image:'assets/loomy/costum-gri.jpg',sizes:['S','M','L']},
+  {id:'fustaplisata',name:'Fustă plisată gri',category:'Separates',price:780,badge:'BESTSELLER',basic:false,image:'assets/loomy/fusta-plisata-gri.jpg',sizes:['S','M','L']},
+  {id:'basictee',name:'Tricou oversized din satin bej',category:'Loomy Basic',price:590,badge:'LOOMY BASIC',basic:true,image:'assets/loomy/tricou-satin-bej.jpg',sizes:['S','M','L']},
+  {id:'basicshirt',name:'Top din satin maro cu spate gol',category:'Loomy Basic',price:420,badge:'LOOMY BASIC',basic:true,image:'assets/loomy/top-satin-maro.jpg',sizes:['S','M','L']},
+  {id:'pantaloni',name:'Pantaloni lungi roz',category:'Separates',price:820,badge:'MADE TO ORDER',basic:false,image:'assets/loomy/pantaloni-roz.jpg',sizes:['S','M','L']},
+  {id:'rochiesatin',name:'Rochie din satin maro cu spate gol',category:'Rochii',price:790,badge:'NOU',basic:false,image:'assets/loomy/rochie-satin-maro.jpg',sizes:['S','M','L']}
 ];
 const money = n => new Intl.NumberFormat('ro-RO').format(n) + ' lei';
 let cart = JSON.parse(localStorage.getItem('loomy-cart') || '[]');
