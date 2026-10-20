@@ -264,6 +264,70 @@ h1 em, h2 em { font-weight: 500; }
 .toast.show { opacity: 1; transform: translateY(0); }
 .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; clip-path: inset(50%); }
 
+/* Made-to-measure profile, style game, and the real virtual try-on flow. */
+.fit-progress { height: 2px; margin: 19px 0 24px; background: #e4ded3; }
+.fit-progress i { display: block; width: 33.33%; height: 100%; background: #b89b68; transition: width .25s ease; }
+.fit-step { display: none; min-height: 188px; }
+.fit-step.is-active { display: block; animation: fit-step-in .22s ease both; }
+@keyframes fit-step-in { from { opacity: .45; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+.fit-hint { max-width: 380px; margin: 16px 0; color: #aaa194; font-size: 10px; line-height: 1.65; }
+.fit-step-controls { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 15px; }
+.fit-step-controls .save-profile { width: auto; }
+.fit-step-count { color: #a29a8c; font-size: 9px; letter-spacing: .12em; }
+.style-game { display: grid; grid-template-columns: .75fr 1fr; gap: 8%; padding-top: 100px; padding-bottom: 104px; }
+.style-game-intro { position: sticky; top: 130px; align-self: start; }
+.style-game-intro h2, .tryon-copy h2 { max-width: 430px; margin: 15px 0; font: 500 clamp(40px,5vw,62px)/.98 var(--serif); }
+.style-game-intro h2 em, .tryon-copy h2 em { color: #c4a875; font-weight: 500; }
+.style-game-intro p, .tryon-copy > p { max-width: 370px; color: #bdb5a9; font-size: 11px; line-height: 1.8; }
+.style-quiz { align-self: center; padding: 31px 34px; border: 1px solid #494238; background: #211e19; }
+.quiz-progress { display: flex; align-items: center; justify-content: space-between; gap: 18px; color: #c4a875; font-size: 8px; letter-spacing: .14em; }
+.quiz-progress > div { width: 100px; height: 2px; background: #4b4338; }
+.quiz-progress i { display: block; width: 33.33%; height: 100%; background: #c4a875; transition: width .2s ease; }
+.quiz-question h3 { margin: 26px 0 20px; font: 500 34px/1.05 var(--serif); }
+.quiz-question h3 em { color: #c4a875; }
+.quiz-options { display: grid; gap: 8px; }
+.quiz-option { display: grid; grid-template-columns: 38px 1fr 18px; align-items: center; gap: 12px; min-height: 56px; padding: 10px 14px; border: 1px solid #4a443b; color: #f1ece3; background: transparent; cursor: pointer; text-align: left; font: 17px var(--serif); transition: background .2s,border .2s; }
+.quiz-option span { color: #b9a47d; font: 8px var(--sans); letter-spacing: .1em; }
+.quiz-option i { color: #b9a47d; font-style: normal; }
+.quiz-option:hover, .quiz-option.selected { border-color: #c4a875; background: #302b24; }
+.quiz-actions { display: flex; align-items: center; justify-content: space-between; gap: 15px; margin-top: 22px; }
+.quiz-actions .button { min-width: 170px; }
+.quiz-actions .button:disabled, .tryon-submit:disabled { opacity: .45; cursor: not-allowed; }
+.quiz-result { display: grid; grid-template-columns: minmax(100px,.7fr) 1fr; gap: 20px; align-items: center; padding: 12px 0; }
+.quiz-result[hidden], .tryon-result[hidden], .tryon-preview-wrap[hidden] { display: none; }
+.quiz-result img { width: 100%; aspect-ratio: .8; object-fit: cover; }
+.quiz-result h4 { margin: 8px 0; font: 24px/1.05 var(--serif); }
+.quiz-result p { color: #beb6aa; font-size: 10px; line-height: 1.7; }
+.quiz-result .button { margin-top: 6px; }
+.tryon-section { display: grid; grid-template-columns: .8fr 1fr; align-items: start; gap: 8%; padding: 92px max(8vw, calc((100vw - 1160px)/2)); color: #eee8dd; background: #211e19; }
+.tryon-copy { position: sticky; top: 130px; }
+.tryon-copy > p { max-width: 410px; }
+.tryon-note { display: grid; gap: 7px; max-width: 390px; margin-top: 26px; padding: 15px; border-left: 1px solid #c4a875; background: #2c2822; }
+.tryon-note b { color: #e1cca6; font: 16px var(--serif); }
+.tryon-note span { color: #bdb5a9; font-size: 9px; line-height: 1.7; }
+.tryon-card { display: grid; gap: 15px; padding: 25px; border: 1px solid #4b4439; background: #27231e; }
+.tryon-card .field-label { color: #c9c0b3; }
+.tryon-card .field-label select { color: #f0ece5; background: #27231e; }
+.tryon-card .field-label select option { color: #211e19; background: #f7f4ee; }
+.tryon-upload { min-height: 185px; display: grid; place-content: center; justify-items: center; gap: 8px; padding: 18px; border: 1px dashed #77705f; color: #eee8dd; cursor: pointer; text-align: center; transition: border-color .2s,background .2s; }
+.tryon-upload:hover, .tryon-upload:focus-within { border-color: #c4a875; background: #302b24; }
+.tryon-upload input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+.upload-icon { width: 31px; height: 31px; display: grid; place-items: center; border: 1px solid #8c7859; border-radius: 50%; color: #d7bd8e; font-size: 20px; }
+.tryon-upload strong { font: 20px var(--serif); }
+.tryon-upload small { max-width: 250px; color: #aaa194; font-size: 9px; line-height: 1.6; }
+.tryon-preview-wrap { display: flex; align-items: center; gap: 12px; }
+.tryon-preview-wrap img { width: 85px; height: 110px; object-fit: cover; }
+.tryon-preview-wrap .clear-profile { margin: 0; color: #c4a875; }
+.tryon-consent { display: grid; grid-template-columns: 16px 1fr; gap: 10px; color: #c7bfb2; font-size: 9px; line-height: 1.65; }
+.tryon-consent input { width: 15px; height: 15px; margin: 2px 0 0; accent-color: #c4a875; }
+.tryon-consent a { color: #e0c999; text-decoration: underline; }
+.tryon-submit { width: 100%; }
+.tryon-status { min-height: 18px; color: #d4bd94; font-size: 10px; line-height: 1.6; }
+.tryon-result { padding-top: 8px; border-top: 1px solid #4b4439; }
+.tryon-result img { display: block; width: 100%; max-height: 620px; object-fit: contain; background: #181613; }
+.tryon-result p { margin: 9px 0 0; color: #bdb5a9; font-size: 9px; line-height: 1.6; }
+.product-tryon-link { display: block; margin-top: 8px; padding: 0 0 3px; border: 0; border-bottom: 1px solid #6d604a; color: #d1b989; background: transparent; cursor: pointer; font-size: 9px; letter-spacing: .04em; }
+
 @media (max-width: 1050px) {
   :root { --page: min(100% - 56px, 900px); }
   .site-header { gap: 18px; padding-right: 28px; padding-left: 28px; }
@@ -314,6 +378,15 @@ h1 em, h2 em { font-weight: 500; }
   .category-card { min-height: 60vw; padding: 14px; }
   .category-title { font-size: 31px; }
   .made-section { grid-template-columns: 1fr; }
+  .style-game, .tryon-section { grid-template-columns: 1fr; gap: 27px; padding: 65px 20px; }
+  .style-game-intro, .tryon-copy { position: static; }
+  .style-game-intro h2, .tryon-copy h2 { font-size: 43px; }
+  .style-quiz { padding: 24px 18px; }
+  .quiz-question h3 { font-size: 29px; }
+  .quiz-result { grid-template-columns: 105px 1fr; gap: 14px; }
+  .quiz-result h4 { font-size: 20px; }
+  .quiz-result .button { min-height: 40px; padding: 0 11px; font-size: 8px; }
+  .tryon-card { padding: 18px; }
   .made-art { min-height: 70vw; max-height: 470px; }
   .made-copy { padding: 46px 24px 52px; }
   .made-copy h2 { margin: 17px 0; }
@@ -410,3 +483,4 @@ h1 em, h2 em { font-weight: 500; }
 .add-button { border-color: #c4a875; }
 .add-button:hover { color: #e0c999; border-color: #e0c999; }
 .toast { color: #211e19; background: #c4a875; }
+
