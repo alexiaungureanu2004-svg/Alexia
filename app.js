@@ -100,6 +100,6 @@ tryonButton.addEventListener('click',startTryon);window.addEventListener('pagehi
 function renderSearch(){const term=$('#search-input').value.toLocaleLowerCase('ro');const found=products.filter(p=>(p.name+' '+p.category).toLocaleLowerCase('ro').includes(term));$('#search-results').innerHTML=found.map(p=>`<button class="search-result" data-search-product="${p.id}"><strong>${p.name}</strong><small>${p.category} · ${money(p.price)}</small></button>`).join('')||'<p>Nu am găsit produse. Încearcă „rochie” sau „corset”.</p>'}
 $('#search-input').addEventListener('input',renderSearch);
 $('#search-results').addEventListener('click',e=>{const b=e.target.closest('[data-search-product]');if(!b)return;closeAll();currentFilter='Toate';$('#category-filter').value=currentFilter;renderProducts();$('#catalog').scrollIntoView({behavior:'smooth'});showToast(products.find(p=>p.id===b.dataset.searchProduct).name)});
-$('#newsletter-form').addEventListener('submit',e=>{e.preventDefault();showToast('Mulțumim! Abonarea va fi activată la lansare.');e.currentTarget.reset()});
+// Newsletter submissions are handled by supabase-newsletter.js.
 renderProducts();updateCart();
 

@@ -484,3 +484,35 @@ h1 em, h2 em { font-weight: 500; }
 .add-button:hover { color: #e0c999; border-color: #e0c999; }
 .toast { color: #211e19; background: #c4a875; }
 
+
+/* Newsletter consent and persistent submission feedback. */
+.newsletter form .newsletter-consent {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 14px;
+  color: inherit;
+  font-size: 12px;
+  line-height: 1.6;
+}
+.newsletter form .newsletter-consent input {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+  margin: 3px 0 0;
+  padding: 0;
+  accent-color: #c4a875;
+}
+.newsletter form .newsletter-message {
+  grid-column: 1 / -1;
+  min-height: 1.6em;
+  margin: 8px 0 0;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.newsletter-message[data-state="error"] { color: #ffc2b8; }
+.newsletter-message[data-state="success"] { color: #d7dfb4; }
+.newsletter form button:disabled { opacity: .6; cursor: wait; }
+
+.newsletter form input:focus-visible { outline: 2px solid #c4a875; outline-offset: 3px; }

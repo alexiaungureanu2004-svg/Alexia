@@ -103,7 +103,7 @@
 
     <section class="social-proof section-wrap" id="reviews"><div class="proof-header"><div class="eyebrow">LOOMY, PRIN OCHII TĂI</div><h2>Încredere, cusută <em>pas cu pas.</em></h2><p>Recenziile verificate vor fi afișate aici după primele comenzi.</p></div><div class="review-empty"><div class="quote-mark">“</div><p>Prima ta experiență LOOMY ar putea fi povestea de aici.</p><span>ÎȚI MULȚUMIM CĂ EȘTI LA ÎNCEPUTUL CĂLĂTORIEI</span></div></section>
 
-    <section class="newsletter"><div><div class="eyebrow">SCRISORI DIN ATELIER</div><h2>Intră în lumea <em>LOOMY.</em></h2><p>Noutăți de atelier, colecții noi și note despre cum se construiește o piesă făcută pentru tine.</p></div><form id="newsletter-form"><label for="email-input" class="visually-hidden">Adresa ta de email</label><input id="email-input" type="email" placeholder="Adresa ta de email" required><button type="submit" aria-label="Abonează-te">→</button><small>Prin abonare, ești de acord cu politica noastră de confidențialitate.</small></form></section>
+    <section class="newsletter"><div><div class="eyebrow">SCRISORI DIN ATELIER</div><h2>Intră în lumea <em>LOOMY.</em></h2><p>Noutăți de atelier, colecții noi și note despre cum se construiește o piesă făcută pentru tine.</p></div><form id="newsletter-form"><label for="email-input" class="visually-hidden">Adresa ta de email</label><input id="email-input" name="email" type="email" autocomplete="email" maxlength="254" aria-describedby="newsletter-message" placeholder="Adresa ta de email" required><button type="submit" aria-label="Abonează-te">→</button><label class="newsletter-consent"><input id="newsletter-consent" type="checkbox" required><span>Vreau să primesc noutăți LOOMY prin email. Adresa și acordul meu sunt salvate în baza de date a atelierului.</span></label><p class="newsletter-message" id="newsletter-message" role="status" aria-live="polite"></p></form></section>
   </main>
 
   <footer class="site-footer"><div class="footer-main"><div class="footer-brand"><a class="wordmark wordmark-footer" href="#top">LOOMY<span>®</span><small>MADE FOR YOUR FORM</small></a><p>Făcută la comandă.<br>Făcută să ți se potrivească.</p><div class="social-links"><a href="#reviews">INSTAGRAM ↗</a><a href="#reviews">PINTEREST ↗</a></div></div><div class="footer-column"><b>DESCOPERĂ</b><a href="#produse">Colecție</a><a href="#noutati">Noutăți</a><a href="#loomy-basic">Loomy Basic</a><a href="#cum-lucram">Made to measure</a></div><div class="footer-column"><b>AI NEVOIE DE AJUTOR?</b><a href="#cum-lucram">Cum comand?</a><a href="#cum-lucram">Măsurile mele</a><a href="#footer-info">Livrare & retur</a><a href="#footer-info">Întrebări frecvente</a></div><div class="footer-column"><b>LEGAL</b><a href="#footer-info">Termeni și condiții</a><a href="#footer-info">Confidențialitate</a><a href="#footer-info">Contact</a><span id="footer-info">București, România</span></div></div><div class="footer-bottom"><span>© 2026 LOOMY THE BRAND</span><span>MADE WITH CARE IN ROMANIA</span><button class="cookie-settings-link" id="cookie-settings" type="button">Setări cookie</button><a href="#top">ÎNAPOI SUS ↑</a></div></footer>
@@ -130,6 +130,7 @@
   </section>
   <script src="app.js"></script>
   <script src="cookie-consent.js"></script>
+  <script src="supabase-newsletter.js"></script>
 </body>
 </html>
 
