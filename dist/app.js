@@ -9,7 +9,11 @@ const products = [
   {id:'rochiesatin',name:'Rochie din satin maro cu spate gol',category:'Rochii',price:790,badge:'NOU',basic:false,image:'assets/loomy/rochie-satin-maro.jpg',sizes:['S','M','L']}
 ];
 const money = n => new Intl.NumberFormat('ro-RO').format(n) + ' lei';
-let cart = JSON.parse(localStorage.getItem('loomy-cart') || '[]');
+let cart = [];
+try {
+  const saved = JSON.parse(localStorage.getItem('loomy-cart') || '[]');
+  if (Array.isArray(saved)) cart = saved.filter(x => x && products.some(p => p.id === x.id) && ['S','M','L'].includes(x.size) && Number.isInteger(x.qty) && x.qty > 0 && x.qty <= 10);
+} catch { /* Start with an empty cart if browser storage is unavailable or invalid. */ }
 let currentFilter = 'Toate';
 let searchSource = 'all';
 const $ = s => document.querySelector(s);
@@ -22,7 +26,7 @@ function renderProducts(){
   $('#catalog-products').innerHTML=visible.map(productCard).join('')||'<p>Nu am găsit produse în această categorie.</p>';
 }
 function updateCart(){
-  localStorage.setItem('loomy-cart',JSON.stringify(cart));
+  try { localStorage.setItem('loomy-cart',JSON.stringify(cart)); } catch { /* The current cart still works without persistence. */ }
   $('#bag-count').textContent=cart.reduce((n,x)=>n+x.qty,0);
   $('#cart-empty').style.display=cart.length?'none':'grid';
   $('#cart-bottom').style.display=cart.length?'block':'none';
@@ -57,7 +61,6 @@ $('#products-next').addEventListener('click',()=>$('#new-arrivals').scrollBy({le
 $('#products-prev').addEventListener('click',()=>$('#new-arrivals').scrollBy({left:-260,behavior:'smooth'}));
 $('#new-arrivals').style.overflowX='auto';
 $('#new-arrivals').style.scrollbarWidth='none';
-$('#checkout-button').addEventListener('click',()=>showToast('Checkout-ul online urmează să fie conectat.'));
 $('#menu-toggle').addEventListener('click',()=>$('.main-nav').classList.toggle('open'));
 $('#account-trigger').addEventListener('click',()=>showToast('Conturile LOOMY vor fi disponibile la lansare.'));
 

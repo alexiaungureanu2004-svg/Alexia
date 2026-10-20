@@ -226,6 +226,12 @@ h1 em, h2 em { font-weight: 500; }
 .cart-bottom p, .cart-bottom small { display: block; color: var(--muted); font-size: 10px; }
 .cart-bottom .button { width: 100%; }
 .cart-bottom small { margin-top: 10px; text-align: center; }
+.cart-bottom .button:disabled { opacity: .65; cursor: wait; }
+.payment-result { position: relative; display: flex; align-items: center; gap: 20px; padding: 14px 5%; background: #f2e5c9; color: #312b21; border-bottom: 1px solid #d8c8a8; }
+.payment-result[hidden] { display: none; }
+.payment-result[data-kind="success"] { background: #e4eadb; }
+.payment-result p { margin: 0; flex: 1; font-size: 13px; line-height: 1.6; }
+.payment-result button { border: 0; background: transparent; color: inherit; padding: 8px 12px; font-size: 24px; cursor: pointer; }
 .modal { z-index: 41; position: fixed; inset: 0; display: grid; place-items: center; overflow-y: auto; padding: 24px; visibility: hidden; opacity: 0; transition: opacity .2s, visibility .2s; }
 .modal.open { visibility: visible; opacity: 1; }
 .modal-panel { position: relative; width: min(620px,100%); max-height: min(90vh,900px); overflow-y: auto; padding: 42px clamp(22px,5vw,54px); background: var(--paper); box-shadow: 0 20px 70px rgba(0,0,0,.2); transform: translateY(10px); transition: transform .2s; }
