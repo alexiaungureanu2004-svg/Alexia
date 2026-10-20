@@ -50,7 +50,8 @@ module.exports = async function handler(req, res) {
   }
 
   const apiKey = process.env.FASHN_API_KEY;
-  if (!apiKey) return json(res, 503, { message: 'Proba virtuală este pregătită, dar nu este activată încă. Mai întâi trebuie configurată cheia API FASHN în Vercel.' });
+  if (process.env.TRYON_ENABLED !== 'true') return json(res, 503, { message: 'Proba virtuală nu este activată încă. Administratorul LOOMY trebuie să configureze serviciul în Vercel.' });
+  if (!apiKey) return json(res, 503, { message: 'Proba virtuală nu este configurată încă. Administratorul LOOMY trebuie să adauge cheia API FASHN în Vercel.' });
 
   if (req.method === 'POST') {
     if (rateLimited(req)) return json(res, 429, { message: 'Ai atins limita temporară de simulări. Încearcă din nou puțin mai târziu.' });
