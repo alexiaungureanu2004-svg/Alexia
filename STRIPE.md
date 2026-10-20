@@ -29,6 +29,12 @@ cancelled or unverifiable payment keeps the cart.
   `checkout.session.async_payment_failed`.
 
 The sandbox shipping option is explicitly labelled as a zero-cost test simulation.
+Orders with a server-verified merchandise subtotal strictly greater than 1,000 RON
+receive a separate free-shipping rate. Exactly 1,000 RON does not qualify.
+The cart and announcement show the same policy. Below this threshold, real
+FAN Courier rates and AWB creation require a FAN Courier contract and selfAWB
+account. Those are not connected yet; no FAN Courier quote or shipment is simulated
+as a real provider response. A zero-cost sandbox simulation is not a real shipping quote.
 Before accepting real payments: claim/activate the Stripe account, connect live
 keys, create a live shipping rate matching the actual delivery policy, configure
 the live webhook and its signing secret, and verify a full payment flow. Then set

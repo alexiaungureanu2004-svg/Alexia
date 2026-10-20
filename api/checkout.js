@@ -1,5 +1,5 @@
 const { createHash } = require('node:crypto');
-const { catalog, stripeClient, normalizeCart, originFor, json } = require('../lib/payments');
+const { catalog, stripeClient, normalizeCart, originFor, json, qualifiesForFreeShipping } = require('../lib/payments');
 
 module.exports = async function handler(req, res) {
   if (!['GET', 'POST'].includes(req.method)) {
@@ -26,6 +26,8 @@ module.exports = async function handler(req, res) {
     }
     const body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
     const items = normalizeCart(body?.items);
+    const subtotal = items.reduce((sum, item) => sum + catalog[item.id].amount * item.qty, 0);
+    const freeShipping = qualifiesForFreeShipping(subtotal);
     if (typeof body?.requestId !== 'string' || !/^[a-f0-9-]{36}$/i.test(body.requestId)) {
       return json(res, 400, { message: 'Reîncearcă plata din coșul de cumpărături.' });
     }
@@ -52,7 +54,9 @@ module.exports = async function handler(req, res) {
             metadata: { product_id: item.id, size: item.size },
             description: 'LOOMY · realizată la comandă' } }
       })),
-      shipping_options: process.env.STRIPE_SHIPPING_RATE_ID ? [{ shipping_rate: process.env.STRIPE_SHIPPING_RATE_ID }] : [{
+      shipping_options: freeShipping ? [{
+        shipping_rate_data: { type: 'fixed_amount', fixed_amount: { amount: 0, currency: 'ron' }, display_name: 'Livrare gratuită — comenzi peste 1.000 lei' }
+      }] : process.env.STRIPE_SHIPPING_RATE_ID ? [{ shipping_rate: process.env.STRIPE_SHIPPING_RATE_ID }] : [{
         shipping_rate_data: { type: 'fixed_amount', fixed_amount: { amount: 0, currency: 'ron' }, display_name: 'Livrare — simulare de test' }
       }]
     };

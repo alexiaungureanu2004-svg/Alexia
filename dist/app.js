@@ -32,6 +32,9 @@ function updateCart(){
   $('#cart-bottom').style.display=cart.length?'block':'none';
   $('#cart-items').innerHTML=cart.map(x=>{const p=products.find(a=>a.id===x.id);return p?`<div class="cart-row"><img src="${p.image}" alt=""><div><strong>${p.name}</strong><small>Mărimea ${x.size} · ${x.qty} buc.</small></div><div><b>${money(p.price*x.qty)}</b><br><button data-remove="${x.id}|${x.size}">Elimină</button></div></div>`:''}).join('');
   $('#cart-subtotal').textContent=money(cart.reduce((n,x)=>n+products.find(p=>p.id===x.id).price*x.qty,0));
+  const subtotal=cart.reduce((n,x)=>n+products.find(p=>p.id===x.id).price*x.qty,0);
+  const shipping=$('#shipping-summary');
+  if(shipping)shipping.textContent=subtotal>1000?'Livrare gratuită în România.':'Livrare gratuită pentru comenzi peste 1.000 lei. Costul transportului se confirmă la checkout.';
 }
 function showToast(message){const t=$('#toast');t.textContent=message;t.classList.add('show');clearTimeout(showToast.timer);showToast.timer=setTimeout(()=>t.classList.remove('show'),2500)}
 function openOverlay(el){$('#overlay').classList.add('open');el.classList.add('open');el.setAttribute('aria-hidden','false');document.body.classList.add('no-scroll')}

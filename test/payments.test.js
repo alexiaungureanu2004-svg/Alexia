@@ -54,6 +54,25 @@ test('reject malformed carts, unsupported sizes, invalid and excessive quantitie
     assert.throws(() => payments.normalizeCart(items), /INVALID_CART/);
   }
 });
+test('free shipping applies strictly above 1000 RON, not at or below the threshold', () => {
+  assert.equal(payments.qualifiesForFreeShipping(99999), false);
+  assert.equal(payments.qualifiesForFreeShipping(100000), false);
+  assert.equal(payments.qualifiesForFreeShipping(100001), true);
+});
+test('eligible cart gets the free rate using server totals even when browser prices are altered', async () => {
+  const res = response();
+  await checkout(request({ items: [{ id: 'basicshirt', size: 'M', qty: 1, price: 1 }, { id: 'basictee', size: 'M', qty: 1, price: 1 }] }), res);
+  assert.equal(res.statusCode, 200);
+  const rate = creations.at(-1).params.shipping_options[0].shipping_rate_data;
+  assert.equal(rate.fixed_amount.amount, 0);
+  assert.match(rate.display_name, /peste 1.000 lei/);
+});
+test('a browser subtotal cannot grant free shipping to a cart below 1000 RON', async () => {
+  const res = response();
+  await checkout(request({ items: [{ id: 'sacougri', size: 'M', qty: 1 }], subtotal: 1000000 }), res);
+  assert.equal(res.statusCode, 200);
+  assert.doesNotMatch(creations.at(-1).params.shipping_options[0].shipping_rate_data.display_name, /comenzi peste/);
+});
 test('checkout ignores a tampered browser price, carries size, uses RON and retry idempotency', async () => {
   creations = [];
   const req = request({ items: [{ id: 'basicshirt', size: 'S', qty: 2, price: 1 }] });
