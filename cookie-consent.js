@@ -1,7 +1,7 @@
 (() => {
   // Paste the property's public GA4 Measurement ID here (format: G-XXXXXXXXXX).
   // Analytics remains inactive until this value is configured and a visitor opts in.
-  const GA_MEASUREMENT_ID = '';
+  const GA_MEASUREMENT_ID = 'G-ZMF0209P91';
   const CONSENT_KEY = 'loomy-cookie-consent-v1';
   const CONSENT_MAX_AGE = 180 * 24 * 60 * 60 * 1000;
   const banner = document.querySelector('#cookie-banner');
