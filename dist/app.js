@@ -1,4 +1,4 @@
-const products = [
+const legacyProducts = [
   {id:'rds308',name:'Rochie lungă neagră cu corset',category:'Rochii',price:2690,badge:'NOU',basic:false,image:'assets/loomy/rochie-neagra-corset.jpg',sizes:['S','M','L']},
   {id:'corset279',name:'Corset cu volane din catifea',category:'Corsete',price:980,badge:'ATELIER PICK',basic:false,image:'assets/loomy/corset-catifea-albastru.jpg',sizes:['S','M','L']},
   {id:'sacougri',name:'Sacou gri oversized',category:'Tailoring',price:990,badge:'MADE TO ORDER',basic:false,image:'assets/loomy/costum-gri.jpg',sizes:['S','M','L']},
@@ -8,6 +8,11 @@ const products = [
   {id:'pantaloni',name:'Pantaloni lungi roz',category:'Separates',price:820,badge:'MADE TO ORDER',basic:false,image:'assets/loomy/pantaloni-roz.jpg',sizes:['S','M','L']},
   {id:'rochiesatin',name:'Rochie din satin maro cu spate gol',category:'Rochii',price:790,badge:'NOU',basic:false,image:'assets/loomy/rochie-satin-maro.jpg',sizes:['S','M','L']}
 ];
+const importedProducts = window.loomyCatalogProducts || [];
+const importedIds = new Set(importedProducts.map(p => p.id));
+const legacyProductUrls = {corset279:'https://www.loomythebrand.com/corset-cu-volane-din-catifea-albastra/pd/t-158',pantalonioffice:'https://www.loomythebrand.com/pantaloni-office/pd/p-232'};
+legacyProducts.forEach(p => { p.sourceUrl = legacyProductUrls[p.id] || p.sourceUrl; });
+const products = [...importedProducts, ...legacyProducts.filter(p => !importedIds.has(p.id))];
 const money = n => new Intl.NumberFormat('ro-RO').format(n) + ' lei';
 let cart = [];
 try {
@@ -19,7 +24,7 @@ let searchSource = 'all';
 const $ = s => document.querySelector(s);
 const $$ = s => [...document.querySelectorAll(s)];
 
-function productCard(p){return `<article class="product-card" data-id="${p.id}"><div class="product-image"><img src="${p.image}" alt="${p.name}" loading="lazy"><span class="product-badge">${p.badge}</span><button class="heart-button" aria-label="Adaugă ${p.name} la favorite" data-fav="${p.id}">♡</button></div><div class="product-meta"><span class="product-name">${p.name}</span><span class="product-price">${money(p.price)}</span></div><div class="product-sub">${p.category} · fiecare piesă este croită la comandă</div><div class="product-actions"><div class="size-row">${p.sizes.map((s,i)=>`<button class="size-chip ${i===1?'selected':''}" data-size="${s}" aria-label="Mărimea ${s}">${s}</button>`).join('')}</div><button class="add-button" data-add="${p.id}">ALEGE FIT-UL +</button></div><button class="product-tryon-link" type="button" data-open-tryon="${p.id}">Încearcă virtual ↗</button></article>`}
+function productCard(p){return `<article class="product-card" data-id="${p.id}"><div class="product-image"><img src="${p.image}" alt="${p.name}" loading="lazy"><span class="product-badge">${p.badge}</span><button class="save-button" aria-label="Salvează ${p.name} la favorite" data-fav="${p.id}" data-saved="false">SALVEAZĂ</button></div><div class="product-meta"><span class="product-name">${p.name}</span><span class="product-price">${money(p.price)}</span></div><div class="product-sub">${p.category} · fiecare piesă este croită la comandă</div>${p.sourceUrl?`<a class="product-source-link" href="${p.sourceUrl}" target="_blank" rel="noopener">DETALIILE PRODUSULUI ↗</a>`:""}<div class="product-actions"><div class="size-row">${p.sizes.map((s,i)=>`<button class="size-chip ${i===1?'selected':''}" data-size="${s}" aria-label="Mărimea ${s}">${s}</button>`).join('')}</div><button class="add-button" data-add="${p.id}">ALEGE FIT-UL +</button></div><button class="product-tryon-link" type="button" data-open-tryon="${p.id}">Încearcă virtual ↗</button></article>`}
 function renderProducts(){
   $('#new-arrivals').innerHTML=products.map(productCard).join('');
   const visible=products.filter(p=>currentFilter==='Toate'||p.category===currentFilter);
@@ -47,7 +52,7 @@ document.addEventListener('click',e=>{
   const add=e.target.closest('[data-add]');if(add){const card=add.closest('.product-card'),id=add.dataset.add,size=selectedSize(add);const item=cart.find(x=>x.id===id&&x.size===size);if(item)item.qty++;else cart.push({id,size,qty:1});updateCart();showToast('Piesa a fost adăugată în coș.');return}
   const size=e.target.closest('.size-chip');if(size){size.closest('.size-row').querySelectorAll('.size-chip').forEach(x=>x.classList.remove('selected'));size.classList.add('selected');return}
   const remove=e.target.closest('[data-remove]');if(remove){const [id,size]=remove.dataset.remove.split('|');cart=cart.filter(x=>!(x.id===id&&x.size===size));updateCart();return}
-  const fav=e.target.closest('[data-fav]');if(fav){const on=fav.textContent==='♥';fav.textContent=on?'♡':'♥';showToast(on?'Eliminat din favorite.':'Adăugat la favorite.');return}
+  const fav=e.target.closest('[data-fav]');if(fav){const on=fav.dataset.saved==='true';fav.dataset.saved=String(!on);fav.textContent=on?'SALVEAZĂ':'SALVAT';fav.setAttribute('aria-label',`${on?'Salvează':'Elimină'} ${products.find(p=>p.id===fav.dataset.fav)?.name||'produsul'} ${on?'la':'din'} favorite`);showToast(on?'Eliminat din favorite.':'Adăugat la favorite.');return}
   const tryon=e.target.closest('[data-open-tryon]');if(tryon){$('#tryon-product').value=tryon.dataset.openTryon;$('#try-on').scrollIntoView({behavior:'smooth'});$('#tryon-photo').focus({preventScroll:true});return}
   const category=e.target.closest('[data-filter]');if(category){e.preventDefault();currentFilter=category.dataset.filter;$('#category-filter').value=currentFilter;renderProducts();$('#catalog').scrollIntoView({behavior:'smooth'});return}
   if(e.target.closest('[data-basic-link]')){e.preventDefault();currentFilter='Loomy Basic';$('#category-filter').value=currentFilter;renderProducts();$('#catalog').scrollIntoView({behavior:'smooth'});return}
