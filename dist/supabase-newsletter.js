@@ -1,8 +1,7 @@
-/* Public Supabase key; database grants and RLS protect subscriber records. */
+/* The server saves consent in Supabase and issues the customer-bound Stripe offer. */
 (function () {
   'use strict';
-  const endpoint = 'https://rijculizyqoazgshlgel.supabase.co/rest/v1/newsletter_subscribers';
-  const publishableKey = 'sb_publishable_qhl7vVM_NxlVbKFPaI-yDg_HkWilgpu';
+  const endpoint = '/api/newsletter';
 
   async function subscribeNewsletter(email, consent) {
     const normalized = String(email || '').trim().toLowerCase();
@@ -11,24 +10,20 @@
       throw new Error('Introdu o adresă de email validă.');
     }
     const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 15000);
+    const timeout = setTimeout(() => controller.abort(), 45000);
     try {
       const response = await fetch(endpoint, {
         method: 'POST',
         headers: {
-          apikey: publishableKey,
-          'Content-Type': 'application/json',
-          Prefer: 'return=minimal'
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify({ email: normalized, consent: true }),
         signal: controller.signal
       });
-      if (!response.ok) {
-        const result = await response.json().catch(() => ({}));
-        // Repeated subscriptions do not change the original consent.
-        if (response.status === 409 && result.code === '23505') return;
-        throw new Error('Abonarea nu a putut fi salvată. Încearcă din nou mai târziu.');
-      }
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok) throw new Error(result.message || 'Abonarea nu a putut fi salvată. Încearcă din nou mai târziu.');
+      if (result.subscribed !== true || typeof result.eligible !== 'boolean') throw new Error('Nu am putut confirma oferta. Încearcă din nou.');
+      return result;
     } catch (error) {
       if (error.name === 'AbortError' || error instanceof TypeError) {
         throw new Error('Nu am putut contacta serviciul. Verifică conexiunea și încearcă din nou.');
@@ -56,9 +51,17 @@
     message.dataset.state = 'pending';
     message.textContent = 'Salvăm abonarea…';
     try {
-      await subscribeNewsletter(email.value, consent.checked);
+      const offer = await subscribeNewsletter(email.value, consent.checked);
+      const saved = { email: email.value.trim().toLowerCase(), code: offer.code, eligible: offer.eligible };
+      try {
+        localStorage.setItem('loomy-newsletter-subscribed-v1', 'true');
+        sessionStorage.setItem('loomy-welcome-offer-v1', JSON.stringify(saved));
+      } catch { /* Subscription works without browser storage. */ }
+      window.dispatchEvent(new CustomEvent('loomy:newsletter-subscribed', { detail: saved }));
       message.dataset.state = 'success';
-      message.textContent = 'Mulțumim! Adresa ta este înregistrată pentru noutățile LOOMY.';
+      message.textContent = offer.eligible
+        ? 'Bine ai venit! Codul LOOMY10 îți oferă 10% la prima comandă. Folosește-l la checkout cu emailul abonat.'
+        : 'Mulțumim! Ești în lista LOOMY. Oferta de bun venit este rezervată primei comenzi.';
       form.reset();
     } catch (error) {
       message.dataset.state = 'error';

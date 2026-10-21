@@ -3,28 +3,44 @@
   const button = document.getElementById('checkout-button');
   const status = document.getElementById('checkout-status');
   const banner = document.getElementById('payment-result');
+  const discountCode = document.getElementById('checkout-discount-code');
+  const discountEmail = document.getElementById('checkout-discount-email');
+  const discountDetails = document.getElementById('checkout-welcome-offer');
   let busy = false;
   const requestKey = 'loomy-checkout-request';
   function read(key, storage = localStorage) {
     try { return JSON.parse(storage.getItem(key) || 'null'); } catch { return null; }
   }
   function setStatus(message) { status.textContent = message; }
+  function applyWelcomeOffer(offer) {
+    if (offer?.eligible === true && offer.code === 'LOOMY10' && typeof offer.email === 'string') {
+      discountCode.value = offer.code;
+      discountEmail.value = offer.email;
+      discountEmail.required = true;
+      discountDetails.open = true;
+    }
+  }
+  applyWelcomeOffer(read('loomy-welcome-offer-v1', sessionStorage));
+  window.addEventListener('loomy:newsletter-subscribed', event => applyWelcomeOffer(event.detail));
 
   button.addEventListener('click', async () => {
     if (busy || !cart.length) return;
+    const code = discountCode.value.trim().toUpperCase();
+    const email = discountEmail.value.trim().toLowerCase();
+    if (!discountEmail.reportValidity()) return;
     busy = true;
     button.disabled = true;
     button.setAttribute('aria-busy', 'true');
     setStatus('Deschidem pagina securizată Stripe…');
     const items = cart.map(({ id, size, qty }) => ({ id, size, qty }));
-    const fingerprint = JSON.stringify(items);
+    const fingerprint = JSON.stringify({ items, code, email });
     let request = read(requestKey, sessionStorage);
     if (!request || request.fingerprint !== fingerprint) request = { id: crypto.randomUUID(), fingerprint };
     try {
       try { sessionStorage.setItem(requestKey, JSON.stringify(request)); } catch { /* Payment also works without browser storage. */ }
       const response = await fetch('/api/checkout', {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ items, requestId: request.id }), signal: AbortSignal.timeout(25000)
+        body: JSON.stringify({ items, requestId: request.id, discountCode: code, email }), signal: AbortSignal.timeout(45000)
       });
       const result = await response.json();
       if (!response.ok) throw new Error(result.message || 'Plata nu este disponibilă.');
@@ -61,6 +77,10 @@
         const result = await response.json();
         if (!response.ok) throw new Error(result.message);
         if (result.paid) {
+          sessionStorage.removeItem('loomy-welcome-offer-v1');
+          discountCode.value = '';
+          discountEmail.value = '';
+          window.dispatchEvent(new Event('loomy:purchase-confirmed'));
           const purchased = read(`loomy-paid-cart:${id}`, sessionStorage);
           if (Array.isArray(purchased)) {
             cart = cart.map(item => ({ ...item, qty: item.qty - purchased.filter(x => x.id === item.id && x.size === item.size).reduce((sum, x) => sum + x.qty, 0) })).filter(item => item.qty > 0);

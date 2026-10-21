@@ -12,6 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="cookie-consent.css">
+  <link rel="stylesheet" href="newsletter-popup.css">
 </head>
 <body>
   <section id="payment-result" class="payment-result" role="status" aria-live="polite" hidden><p></p><button type="button" aria-label="Închide mesajul despre plată">×</button></section>
@@ -104,13 +105,48 @@
 
     <section class="social-proof section-wrap" id="reviews"><div class="proof-header"><div class="eyebrow">LOOMY, PRIN OCHII TĂI</div><h2>Încredere, cusută <em>pas cu pas.</em></h2><p>Recenziile verificate vor fi afișate aici după primele comenzi.</p></div><div class="review-empty"><div class="quote-mark">“</div><p>Prima ta experiență LOOMY ar putea fi povestea de aici.</p><span>ÎȚI MULȚUMIM CĂ EȘTI LA ÎNCEPUTUL CĂLĂTORIEI</span></div></section>
 
-    <section class="newsletter"><div><div class="eyebrow">SCRISORI DIN ATELIER</div><h2>Intră în lumea <em>LOOMY.</em></h2><p>Noutăți de atelier, colecții noi și note despre cum se construiește o piesă făcută pentru tine.</p></div><form id="newsletter-form"><label for="email-input" class="visually-hidden">Adresa ta de email</label><input id="email-input" name="email" type="email" autocomplete="email" maxlength="254" aria-describedby="newsletter-message" placeholder="Adresa ta de email" required><button type="submit" aria-label="Abonează-te">→</button><label class="newsletter-consent"><input id="newsletter-consent" type="checkbox" required><span>Vreau să primesc noutăți LOOMY prin email. Adresa și acordul meu sunt salvate în baza de date a atelierului.</span></label><p class="newsletter-message" id="newsletter-message" role="status" aria-live="polite"></p></form></section>
+    <section class="newsletter"><div><div class="eyebrow">SCRISORI DIN ATELIER</div><h2>Intră în lumea <em>LOOMY.</em></h2><p>Noutăți de atelier, colecții noi și note despre cum se construiește o piesă făcută pentru tine.</p></div><form id="newsletter-form"><label for="email-input" class="visually-hidden">Adresa ta de email</label><input id="email-input" name="email" type="email" autocomplete="email" maxlength="254" aria-describedby="newsletter-message" placeholder="Adresa ta de email" required><button type="submit" aria-label="Abonează-te">→</button><label class="newsletter-consent"><input id="newsletter-consent" type="checkbox" required><span>Vreau să primesc noutăți și oferte LOOMY prin email. Adresa și acordul sunt salvate în Supabase; emailul este folosit și de Stripe pentru oferta de bun venit.</span></label><p class="newsletter-message" id="newsletter-message" role="status" aria-live="polite"></p></form></section>
   </main>
 
   <footer class="site-footer"><div class="footer-main"><div class="footer-brand"><a class="wordmark wordmark-footer" href="#top">LOOMY<span>®</span><small>MADE FOR YOUR FORM</small></a><p>Făcută la comandă.<br>Făcută să ți se potrivească.</p><div class="social-links"><a href="#reviews">INSTAGRAM ↗</a><a href="#reviews">PINTEREST ↗</a></div></div><div class="footer-column"><b>DESCOPERĂ</b><a href="#produse">Colecție</a><a href="#noutati">Noutăți</a><a href="#loomy-basic">Loomy Basic</a><a href="#cum-lucram">Made to measure</a></div><div class="footer-column"><b>AI NEVOIE DE AJUTOR?</b><a href="#cum-lucram">Cum comand?</a><a href="#cum-lucram">Măsurile mele</a><a href="#footer-info">Livrare & retur</a><a href="#footer-info">Întrebări frecvente</a></div><div class="footer-column"><b>LEGAL</b><a href="#footer-info">Termeni și condiții</a><a href="#footer-info">Confidențialitate</a><a href="#footer-info">Contact</a><span id="footer-info">București, România</span></div></div><div class="footer-bottom"><span>© 2026 LOOMY THE BRAND</span><span>MADE WITH CARE IN ROMANIA</span><button class="cookie-settings-link" id="cookie-settings" type="button">Setări cookie</button><a href="#top">ÎNAPOI SUS ↑</a></div></footer>
 
+  <button class="welcome-launcher" id="newsletter-launcher" type="button" aria-haspopup="dialog" aria-controls="newsletter-popup"><strong>−10%</strong><span>La prima comandă</span><span aria-hidden="true">↗</span></button>
+  <dialog class="welcome-dialog" id="newsletter-popup" aria-labelledby="welcome-title" aria-describedby="welcome-intro">
+    <div class="welcome-layout">
+      <div class="welcome-visual" aria-hidden="true">
+        <img src="assets/loomy/rochie-neagra-corset.jpg" alt="" width="768" height="1024">
+        <div class="welcome-image-caption"><span>−10%</span><small>YOUR FIRST LOOMY MOMENT</small></div>
+      </div>
+      <div class="welcome-content">
+        <button class="welcome-close" type="button" data-welcome-close aria-label="Închide oferta de newsletter">×</button>
+        <p class="welcome-eyebrow">BINE AI VENIT ÎN ATELIER</p>
+        <h2 id="welcome-title">Prima ta piesă,<br><em>cu 10% reducere.</em></h2>
+        <p class="welcome-intro" id="welcome-intro">Intră în lumea LOOMY. Abonează-te la scrisorile din atelier și primește un cod de bun venit pentru prima comandă.</p>
+        <form class="welcome-form" id="welcome-form">
+          <label class="welcome-field" for="welcome-email">ADRESA TA DE EMAIL</label>
+          <input id="welcome-email" name="email" type="email" autocomplete="email" inputmode="email" maxlength="254" placeholder="nume@email.ro" aria-describedby="welcome-message" required>
+          <label class="welcome-consent"><input id="welcome-consent" name="consent" type="checkbox" required><span>Vreau să primesc noutăți și oferte LOOMY prin email. Adresa și acordul sunt salvate în Supabase; emailul este folosit și de Stripe pentru oferta de bun venit.</span></label>
+          <button class="welcome-submit" type="submit"><span>PRIMESC 10% REDUCERE</span><span aria-hidden="true">↗</span></button>
+          <p class="welcome-message" id="welcome-message" role="status" aria-live="polite"></p>
+          <button class="welcome-later" type="button" data-welcome-close>Poate mai târziu</button>
+        </form>
+        <div class="welcome-result" id="welcome-result" hidden role="status" aria-live="polite">
+          <p>Te-ai abonat cu <strong id="welcome-result-email"></strong>. Bine ai venit în atelier!</p>
+          <p id="welcome-offer-message">Codul tău pentru prima comandă:</p>
+          <strong class="welcome-code" id="welcome-code">LOOMY10</strong>
+          <div class="welcome-result-actions"><button class="welcome-copy" id="welcome-copy" type="button">Copiază codul</button><a id="welcome-shop" href="#catalog">Descoperă colecția ↗</a><button class="welcome-later" id="welcome-other-email" type="button">Folosește alt email</button></div>
+        </div>
+        <p class="welcome-terms">Codul apare aici după abonare. Valabil o singură dată, la prima comandă, cu emailul abonat. Nu se cumulează cu alte coduri și nu reduce transportul.</p>
+      </div>
+    </div>
+  </dialog>
   <div class="overlay" id="overlay"></div>
-  <aside class="drawer" id="cart-drawer" aria-label="Coșul de cumpărături" aria-hidden="true"><div class="drawer-head"><div><div class="eyebrow">ALEGERI BUNE</div><h2>Coșul tău <em>LOOMY.</em></h2></div><button class="close-button" data-close aria-label="Închide coșul">×</button></div><div class="cart-items" id="cart-items"></div><div class="cart-empty" id="cart-empty"><span>✳</span><p>Încă nu ai ales nimic.<br>Următoarea ta piesă preferată e aproape.</p><button class="text-button" data-close>Descoperă colecția →</button></div><div class="cart-bottom" id="cart-bottom"><div><span>Subtotal</span><b id="cart-subtotal">0 lei</b></div><p id="shipping-summary">Livrare gratuită pentru comenzi peste 1.000 lei. Costul transportului se confirmă la checkout.</p><button class="button button-dark" id="checkout-button" type="button" aria-describedby="checkout-status">Plătește prin Stripe <span>↗</span></button><small id="checkout-status" role="status" aria-live="polite">Mod de test · nu se debitează bani și nu se expediază produse.</small></div></aside>
+  <aside class="drawer" id="cart-drawer" aria-label="Coșul de cumpărături" aria-hidden="true"><div class="drawer-head"><div><div class="eyebrow">ALEGERI BUNE</div><h2>Coșul tău <em>LOOMY.</em></h2></div><button class="close-button" data-close aria-label="Închide coșul">×</button></div><div class="cart-items" id="cart-items"></div><div class="cart-empty" id="cart-empty"><span>✳</span><p>Încă nu ai ales nimic.<br>Următoarea ta piesă preferată e aproape.</p><button class="text-button" data-close>Descoperă colecția →</button></div><div class="cart-bottom" id="cart-bottom"><div><span>Subtotal</span><b id="cart-subtotal">0 lei</b></div><p id="shipping-summary">Livrare gratuită pentru comenzi peste 1.000 lei. Costul transportului se confirmă la checkout.</p><label class="checkout-email" for="checkout-discount-email">EMAIL PENTRU COMANDĂ<input id="checkout-discount-email" type="email" maxlength="254" autocomplete="email" placeholder="nume@email.ro" required></label><details class="checkout-welcome" id="checkout-welcome-offer">
+<summary>Ai un cod de reducere?</summary>
+<label for="checkout-discount-code">COD DE REDUCERE<input id="checkout-discount-code" type="text" maxlength="30" autocomplete="off" placeholder="LOOMY10"></label>
+
+<small>Folosește emailul abonat pentru LOOMY10. Reducerea de 10% se confirmă la checkout și este valabilă o singură dată, la prima comandă.</small>
+</details><button class="button button-dark" id="checkout-button" type="button" aria-describedby="checkout-status">Plătește prin Stripe <span>↗</span></button><small id="checkout-status" role="status" aria-live="polite">Mod de test · nu se debitează bani și nu se expediază produse.</small></div></aside>
 
   <section class="modal" id="measure-modal" role="dialog" aria-modal="true" aria-labelledby="measure-title" aria-hidden="true"><div class="modal-panel"><button class="close-button modal-close" data-close aria-label="Închide formularul">×</button><div class="modal-eyebrow" id="fit-step-kicker">PROFIL MADE TO MEASURE · PASUL 1 DIN 3</div><h2 id="measure-title">Începem cu <em>preferințele tale.</em></h2><p class="modal-intro">Câteva alegeri ne ajută să înțelegem cum vrei să se așeze piesa. Profilul rămâne pe acest dispozitiv.</p><div class="fit-progress" aria-hidden="true"><i id="fit-progress-fill"></i></div><form id="measure-form">
     <div class="fit-step is-active" data-fit-step="0"><fieldset class="size-choice"><legend>Ce mărime alegi de obicei?</legend><div class="size-buttons"><label><input type="radio" name="size" value="S"><span>S</span></label><label><input type="radio" name="size" value="M" checked><span>M</span></label><label><input type="radio" name="size" value="L"><span>L</span></label></div></fieldset><label class="field-label">CUM DESCRII SILUETA TA? <select name="bodyType"><option value="">Alege opțional</option><option>Clepsidră</option><option>Pară</option><option>Măr</option><option>Triunghi inversat</option><option>Coloană</option><option>Prefer să nu aleg</option></select></label><p class="fit-hint">Alege doar dacă te ajută. Nu există un tip de corp „corect”.</p></div>
@@ -133,6 +169,7 @@
   <script src="checkout.js"></script>
   <script src="cookie-consent.js"></script>
   <script src="supabase-newsletter.js"></script>
+  <script src="newsletter-popup.js"></script>
 </body>
 </html>
 

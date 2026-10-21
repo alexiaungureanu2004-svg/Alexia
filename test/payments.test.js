@@ -14,6 +14,9 @@ process.env.STRIPE_SECRET_KEY = ['sk', 'test', 'placeholder'].join('_');
 process.env.STRIPE_WEBHOOK_SECRET = secret;
 process.env.VERCEL_URL = 'loomy-test.vercel.app';
 payments.stripeClient = () => ({
+  customers: {
+    list: async () => ({ data: [{ id: 'cus_loomy', email: 'buyer@example.invalid', created: 1, metadata: { store: 'loomy' } }], has_more: false })
+  },
   checkout: { sessions: {
     create: async (params, options) => { creations.push({ params, options }); return { id: sessionId, url: 'https://checkout.stripe.com/test', livemode: false }; },
     retrieve: async () => currentSession,
@@ -31,7 +34,7 @@ function response() {
 }
 function request(body) {
   return { method: 'POST', headers: { host: 'loomy-test.vercel.app', origin: 'https://loomy-test.vercel.app', 'content-type': 'application/json' },
-    body: { items: [{ id: 'basicshirt', size: 'M', qty: 2 }], requestId: '12345678-1234-1234-1234-123456789abc', ...body } };
+    body: { items: [{ id: 'basicshirt', size: 'M', qty: 2 }], email: 'buyer@example.invalid', requestId: '12345678-1234-1234-1234-123456789abc', ...body } };
 }
 function eventRequest(type, valid = true) {
   const payload = JSON.stringify({ id: 'evt_test', type, data: { object: { id: sessionId } } });
