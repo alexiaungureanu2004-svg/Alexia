@@ -1,5 +1,6 @@
 const { createHash } = require('node:crypto');
 const { catalog, stripeClient, normalizeCart, originFor, json, qualifiesForFreeShipping } = require('../lib/payments');
+const { checkoutDiscount } = require('../lib/newsletter-offer');
 
 module.exports = async function handler(req, res) {
   if (!['GET', 'POST'].includes(req.method)) {
@@ -38,7 +39,9 @@ module.exports = async function handler(req, res) {
       return json(res, 503, { message: 'Plățile reale nu sunt încă activate.' });
     }
     const cartSummary = items.map(x => `${x.id}:${x.size}:${x.qty}`).join(',');
+    const discount = await checkoutDiscount(stripe, body?.email, body?.discountCode);
     const params = {
+      ...discount,
       mode: 'payment', locale: 'ro', integration_identifier: 'loomy-checkout-qmztrvab',
       success_url: `${origin}/?checkout=success&session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}/?checkout=cancelled`,
@@ -64,6 +67,10 @@ module.exports = async function handler(req, res) {
     const session = await stripe.checkout.sessions.create(params, { idempotencyKey: `loomy-${body.requestId}-${hash}` });
     return json(res, 200, { id: session.id, url: session.url, testMode: !session.livemode });
   } catch (error) {
+    if (error.message === 'INVALID_EMAIL') return json(res, 400, { message: 'Introdu emailul tău înainte de a continua la plată.' });
+    if (['INVALID_DISCOUNT', 'DISCOUNT_USED'].includes(error.message) || /promotion_code|coupon/.test(error.code || '')) {
+      return json(res, 400, { message: 'Codul nu este disponibil pentru acest email. Reducerea se aplică o singură dată, la prima comandă. Verifică emailul abonat sau continuă fără cod.' });
+    }
     if (error.message === 'INVALID_CART' || error instanceof SyntaxError) {
       return json(res, 400, { message: 'Verifică produsele, mărimile și cantitățile din coș (maximum 20 de piese).' });
     }

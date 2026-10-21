@@ -1,0 +1,490 @@
+{
+  "loomy-c187": {
+    "name": "Cămașă cu guler din piele",
+    "amount": 58000
+  },
+  "loomy-c193": {
+    "name": "Compleu din 3 piese",
+    "amount": 159000
+  },
+  "loomy-c219": {
+    "name": "Cămașă scurtă cu mâneci supradimensionate",
+    "amount": 54000
+  },
+  "loomy-c221": {
+    "name": "Corset",
+    "amount": 98000
+  },
+  "loomy-c222": {
+    "name": "Corset cu cataramă",
+    "amount": 98000
+  },
+  "loomy-c223": {
+    "name": "Corset cu cataramă și bretele",
+    "amount": 98000
+  },
+  "loomy-c224": {
+    "name": "Costum din stofă lucioasă",
+    "amount": 149000
+  },
+  "loomy-c225": {
+    "name": "Costum oversized",
+    "amount": 149000
+  },
+  "loomy-c274": {
+    "name": "Cămașă cu guler",
+    "amount": 59000
+  },
+  "loomy-c275": {
+    "name": "Cămașă cu umeri supradimensionați",
+    "amount": 59000
+  },
+  "loomy-c276": {
+    "name": "Compleu corset cu dantelă și fusta",
+    "amount": 103000
+  },
+  "loomy-c277": {
+    "name": "Corset cu dantelă",
+    "amount": 69000
+  },
+  "loomy-c279": {
+    "name": "Compleu denim negru",
+    "amount": 109800
+  },
+  "loomy-c280": {
+    "name": "Corset din denim negru",
+    "amount": 76000
+  },
+  "loomy-c282": {
+    "name": "Costum gri oversized",
+    "amount": 133200
+  },
+  "loomy-c285": {
+    "name": "Compleu blazer dress gri și pantaloni",
+    "amount": 168300
+  },
+  "loomy-c286": {
+    "name": "Compleu blazer dress negru și pantaloni lungi",
+    "amount": 168300
+  },
+  "loomy-c288": {
+    "name": "Corset înalt stofă neagră",
+    "amount": 86000
+  },
+  "loomy-c289": {
+    "name": "Compleu corset stofă neagră și pantaloni lungi",
+    "amount": 109800
+  },
+  "loomy-c294": {
+    "name": "Corset gri metalizat",
+    "amount": 57000
+  },
+  "loomy-c295": {
+    "name": "Compleu gri metalizat corset și pantaloni largi",
+    "amount": 101000
+  },
+  "loomy-c296": {
+    "name": "Costum negru",
+    "amount": 178200
+  },
+  "loomy-c303": {
+    "name": "Top versized din fâș negru",
+    "amount": 45000
+  },
+  "loomy-f278": {
+    "name": "Fustă din stofă cu dungi",
+    "amount": 76000
+  },
+  "loomy-mw323": {
+    "name": "Pantaloni decupați pe laterale",
+    "amount": 82000
+  },
+  "loomy-mw324": {
+    "name": "Corset decupat cu bască și anouri",
+    "amount": 78000
+  },
+  "pantaloni": {
+    "name": "Pantaloni lungi roz",
+    "amount": 82000
+  },
+  "loomy-mw326": {
+    "name": "Corset roz cu basc asimetric",
+    "amount": 78000
+  },
+  "loomy-mw331": {
+    "name": "Corset înalt roz",
+    "amount": 82000
+  },
+  "loomy-mw332": {
+    "name": "Vestă cu revere și cordon reglabil",
+    "amount": 82000
+  },
+  "loomy-mw333": {
+    "name": "Fustă plisată cappucino",
+    "amount": 78000
+  },
+  "loomy-mw334": {
+    "name": "Vestă cu funde cappucino",
+    "amount": 78000
+  },
+  "loomy-mw335": {
+    "name": "Fustă cu anouri cappucino",
+    "amount": 78000
+  },
+  "loomy-mw336": {
+    "name": "Vestă în colțuri cappucino",
+    "amount": 78000
+  },
+  "loomy-mw337": {
+    "name": "Fustă plisată bleumarin",
+    "amount": 78000
+  },
+  "loomy-mw338": {
+    "name": "Vestă scurtă bleumarin",
+    "amount": 78000
+  },
+  "loomy-mw339": {
+    "name": "Rochie din stofă gri cu dungi",
+    "amount": 121000
+  },
+  "loomy-mw340": {
+    "name": "Corset înalt gri",
+    "amount": 82000
+  },
+  "fustaplisata": {
+    "name": "Fustă plisată gri",
+    "amount": 78000
+  },
+  "loomy-mw342": {
+    "name": "Vestă scurtă gri",
+    "amount": 78000
+  },
+  "loomy-mw343": {
+    "name": "Pantaloni tullip gri",
+    "amount": 82000
+  },
+  "loomy-mw344": {
+    "name": "Vestă petrecută gri",
+    "amount": 82000
+  },
+  "loomy-mw345": {
+    "name": "Rochie lungă din stofă neagră",
+    "amount": 179000
+  },
+  "loomy-mw346": {
+    "name": "Pantaloni 3/4 negri",
+    "amount": 78000
+  },
+  "loomy-mw347": {
+    "name": "Vestă lungă cu revere",
+    "amount": 82000
+  },
+  "loomy-mw348": {
+    "name": "Corset negru",
+    "amount": 82000
+  },
+  "loomy-mw349": {
+    "name": "Pantaloni lungi negri cu dungi",
+    "amount": 82000
+  },
+  "loomy-mw350": {
+    "name": "Vestă scurtă neagră",
+    "amount": 78000
+  },
+  "loomy-mw351": {
+    "name": "Pantaloni lungi albi cu dungi negre",
+    "amount": 82000
+  },
+  "loomy-mw352": {
+    "name": "Top alb cu dantelă Chantilly",
+    "amount": 86000
+  },
+  "loomy-mw353": {
+    "name": "Corset înalt cu dantelă Chantilly",
+    "amount": 86000
+  },
+  "loomy-mw354": {
+    "name": "Corset alb cu șnur și anouri",
+    "amount": 82000
+  },
+  "loomy-mw355": {
+    "name": "Vestă albă asimetrică",
+    "amount": 82000
+  },
+  "loomy-mw356": {
+    "name": "Vestă lungă albă cu anouri",
+    "amount": 82000
+  },
+  "loomy-p194": {
+    "name": "Pantaloni petrecuți",
+    "amount": 76000
+  },
+  "loomy-p229": {
+    "name": "Pantaloni cu corset inserat",
+    "amount": 97000
+  },
+  "loomy-p230": {
+    "name": "Pantaloni decupați",
+    "amount": 77000
+  },
+  "loomy-p231": {
+    "name": "Pantaloni largi din stofă gri",
+    "amount": 59000
+  },
+  "loomy-p232": {
+    "name": "Pantaloni office",
+    "amount": 49000
+  },
+  "loomy-p281": {
+    "name": "Pantaloni 3/4 denim",
+    "amount": 72000
+  },
+  "loomy-p284": {
+    "name": "Pantaloni largi stofă gri",
+    "amount": 86000
+  },
+  "loomy-p287": {
+    "name": "Pantaloni largi stofă neagră",
+    "amount": 86000
+  },
+  "loomy-p293": {
+    "name": "Pantaloni largi gri metalizat",
+    "amount": 52000
+  },
+  "loomy-p297": {
+    "name": "Pantaloni lungi din crep cu vipușcă",
+    "amount": 86000
+  },
+  "loomy-p299": {
+    "name": "Pantaloni din denim cu ștrasuri",
+    "amount": 59000
+  },
+  "loomy-p300": {
+    "name": "Pantaloni largi din tafta lucioasă",
+    "amount": 84000
+  },
+  "loomy-r235": {
+    "name": "Rochie din denim negru",
+    "amount": 89000
+  },
+  "loomy-r301": {
+    "name": "Rochie cu corset atașat din stofă gri",
+    "amount": 112000
+  },
+  "loomy-r302": {
+    "name": "Rochie gogoșar",
+    "amount": 98000
+  },
+  "loomy-rds305": {
+    "name": "Rochie lungă neagră asimetrică cu slit",
+    "amount": 239000
+  },
+  "loomy-rds306": {
+    "name": "Rochie lungă neagră cu spate gol și slit pe picior",
+    "amount": 249000
+  },
+  "loomy-rds307": {
+    "name": "Rochie lungă neagră satinată cu spate decupat și slit dublu",
+    "amount": 219000
+  },
+  "rds308": {
+    "name": "Rochie lungă neagră cu corset și top satinat",
+    "amount": 269000
+  },
+  "loomy-rds309": {
+    "name": "Rochie lungă neagră cu corset din catifea și slit frontal",
+    "amount": 278000
+  },
+  "loomy-rds310": {
+    "name": "Rochie lungă neagră satinată cu spate gol și slit la spate",
+    "amount": 227000
+  },
+  "loomy-rds311": {
+    "name": "Rochie lungă neagră cu dantelă chantilly și fustă din tafta",
+    "amount": 279000
+  },
+  "loomy-rds312": {
+    "name": "Rochie lungă neagră cu corset și fustă din tafta",
+    "amount": 249000
+  },
+  "loomy-rds313": {
+    "name": "Rochie lungă neagră satinată cu bustieră din dantelă chantilly",
+    "amount": 289000
+  },
+  "loomy-rds314": {
+    "name": "Rochie lungă neagră vaporoasă cu decolteu adânc și guler din tafta",
+    "amount": 219000
+  },
+  "loomy-rds315": {
+    "name": "Rochie scurtă neagră din satin cu drapaje în talie",
+    "amount": 188000
+  },
+  "loomy-rds316": {
+    "name": "Rochie scurtă neagră cu corset din tafta și fustă din dantelă chantilly",
+    "amount": 179000
+  },
+  "loomy-rds317": {
+    "name": "Rochie scurtă neagră din tafta cu corset și drapaje din voal",
+    "amount": 169000
+  },
+  "loomy-rds318": {
+    "name": "Rochie scurtă neagră din tafta cu corset și fustă amplă",
+    "amount": 159000
+  },
+  "loomy-rds319": {
+    "name": "Corset negru cu șnur și pantaloni scurți cu tulle",
+    "amount": 149000
+  },
+  "loomy-rds320": {
+    "name": "Rochie scurtă neagră structurată cu corset și decolteu catcut",
+    "amount": 179000
+  },
+  "loomy-rds321": {
+    "name": "Rochie scurtă neagră din satin cu mâneci crăpate",
+    "amount": 179000
+  },
+  "loomy-rds322": {
+    "name": "Rochie mini neagră din stofă cu dungi discrete și drapaje",
+    "amount": 109000
+  },
+  "loomy-s358": {
+    "name": "Pantaloni lungi din macrame",
+    "amount": 59000
+  },
+  "loomy-s359": {
+    "name": "Tricou din macrame",
+    "amount": 57000
+  },
+  "loomy-s360": {
+    "name": "Corset cu anouri",
+    "amount": 59000
+  },
+  "loomy-s361": {
+    "name": "Corset alb satinat",
+    "amount": 53000
+  },
+  "loomy-s362": {
+    "name": "Fusta midi mulata cu crapatura laterala",
+    "amount": 39000
+  },
+  "loomy-s363": {
+    "name": "Fusta scurta din voal de matase cu volane",
+    "amount": 68000
+  },
+  "loomy-s364": {
+    "name": "Pantaloni 3/4 din satin",
+    "amount": 53000
+  },
+  "loomy-s365": {
+    "name": "Pantaloni 3/4 din tafta lucioasa",
+    "amount": 56000
+  },
+  "loomy-s366": {
+    "name": "Pantalonii largi din in vernil",
+    "amount": 59000
+  },
+  "loomy-s367": {
+    "name": "Pantaloni lungi din in vernil drepti",
+    "amount": 59000
+  },
+  "loomy-s368": {
+    "name": "Pantaloni lungi largi din satin bej",
+    "amount": 57000
+  },
+  "loomy-s369": {
+    "name": "Pantaloni lungi largi din satin negru",
+    "amount": 57000
+  },
+  "rochiesatin": {
+    "name": "Rochie din satin maro cu spate gol",
+    "amount": 79000
+  },
+  "loomy-s371": {
+    "name": "Top alb cu volane",
+    "amount": 59000
+  },
+  "loomy-s372": {
+    "name": "Top din in",
+    "amount": 42000
+  },
+  "loomy-s373": {
+    "name": "Tricou alb din dantela cu umeri supradimensionati",
+    "amount": 69000
+  },
+  "basictee": {
+    "name": "Tricou oversized din satin bej",
+    "amount": 59000
+  },
+  "loomy-s375": {
+    "name": "Pantaloni lungi din satin maro",
+    "amount": 57000
+  },
+  "basicshirt": {
+    "name": "Top din satin maro cu spate gol",
+    "amount": 42000
+  },
+  "loomy-s377": {
+    "name": "Top in vernil cu umar lasat",
+    "amount": 53000
+  },
+  "loomy-s228": {
+    "name": "Palton cu decupaje laterale",
+    "amount": 169000
+  },
+  "loomy-s236": {
+    "name": "Sacou cu ștrasuri",
+    "amount": 119000
+  },
+  "loomy-s237": {
+    "name": "Sacou cu volane",
+    "amount": 89000
+  },
+  "loomy-s238": {
+    "name": "Sacou negru oversized",
+    "amount": 98000
+  },
+  "sacougri": {
+    "name": "Sacou gri oversized",
+    "amount": 99000
+  },
+  "loomy-s271": {
+    "name": "Blazer dress alb",
+    "amount": 149000
+  },
+  "loomy-s272": {
+    "name": "Blazer dress negru",
+    "amount": 149000
+  },
+  "loomy-s273": {
+    "name": "Blazer dress gri",
+    "amount": 149000
+  },
+  "loomy-s283": {
+    "name": "Sacou oversized gri",
+    "amount": 99000
+  },
+  "loomy-s298": {
+    "name": "Sacou din crep negru",
+    "amount": 149000
+  },
+  "loomy-t157": {
+    "name": "Corset cu volane din denim negru",
+    "amount": 94000
+  },
+  "corset279": {
+    "name": "Corset cu volane din catifea albastra",
+    "amount": 98000
+  },
+  "loomy-t291": {
+    "name": "Tricou oversized gri metalizat",
+    "amount": 49000
+  },
+  "loomy-t380": {
+    "name": "Tricou oversized gri matelizat cu umeri supradimensionati",
+    "amount": 45000
+  },
+  "loomy-v195": {
+    "name": "Vestă în colțuri",
+    "amount": 64000
+  }
+}
