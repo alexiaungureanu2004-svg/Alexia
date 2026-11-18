@@ -1,7 +1,8 @@
 {
   "scripts": {
     "test:route": "node test/deployment-smoke.mjs",
-    "test:build": "node test/deployment-build-smoke.mjs"
+    "test:build": "node test/deployment-build-smoke.mjs",
+    "test:seo": "node test/seo-metadata.test.mjs"
   },
   "dependencies": {
     "stripe": "23.0.0"

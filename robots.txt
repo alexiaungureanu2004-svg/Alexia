@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://alexia-theta.vercel.app/sitemap.xml
