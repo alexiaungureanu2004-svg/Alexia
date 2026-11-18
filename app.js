@@ -69,7 +69,12 @@ $('#products-next').addEventListener('click',()=>$('#new-arrivals').scrollBy({le
 $('#products-prev').addEventListener('click',()=>$('#new-arrivals').scrollBy({left:-260,behavior:'smooth'}));
 $('#new-arrivals').style.overflowX='auto';
 $('#new-arrivals').style.scrollbarWidth='none';
-$('#menu-toggle').addEventListener('click',()=>$('.main-nav').classList.toggle('open'));
+const menuToggle=$('#menu-toggle'),mainNav=$('.main-nav');
+function setMenuOpen(open){mainNav.classList.toggle('open',open);menuToggle.setAttribute('aria-expanded',String(open));menuToggle.setAttribute('aria-label',open?'Închide meniul':'Deschide meniul')}
+menuToggle.addEventListener('click',()=>setMenuOpen(!mainNav.classList.contains('open')));
+mainNav.addEventListener('click',e=>{if(e.target.closest('a'))setMenuOpen(false)});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&mainNav.classList.contains('open')){setMenuOpen(false);menuToggle.focus()}});
+window.addEventListener('resize',()=>{if(window.innerWidth>760)setMenuOpen(false)});
 $('#account-trigger').addEventListener('click',()=>showToast('Conturile LOOMY vor fi disponibile la lansare.'));
 
 const profileKey='loomy-fit-profile';
@@ -113,4 +118,5 @@ $('#search-input').addEventListener('input',renderSearch);
 $('#search-results').addEventListener('click',e=>{const b=e.target.closest('[data-search-product]');if(!b)return;closeAll();currentFilter='Toate';$('#category-filter').value=currentFilter;renderProducts();$('#catalog').scrollIntoView({behavior:'smooth'});showToast(products.find(p=>p.id===b.dataset.searchProduct).name)});
 // Newsletter submissions are handled by supabase-newsletter.js.
 renderProducts();updateCart();
+
 
