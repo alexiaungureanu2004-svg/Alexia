@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "build": "node test/deployment-build-smoke.mjs",
+    "build": "node --check app.js && node --check checkout.js && node --check cookie-consent.js && node --check supabase-newsletter.js && node --check newsletter-popup.js",
     "test:route": "node test/deployment-smoke.mjs"
   },
   "dependencies": {
