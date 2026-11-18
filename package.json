@@ -1,4 +1,8 @@
 {
+  "scripts": {
+    "build": "node test/deployment-build-smoke.mjs",
+    "test:route": "node test/deployment-smoke.mjs"
+  },
   "dependencies": {
     "stripe": "23.0.0"
   }
