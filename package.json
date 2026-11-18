@@ -1,7 +1,7 @@
 {
   "scripts": {
-    "build": "node --check app.js && node --check checkout.js && node --check cookie-consent.js && node --check supabase-newsletter.js && node --check newsletter-popup.js",
-    "test:route": "node test/deployment-smoke.mjs"
+    "test:route": "node test/deployment-smoke.mjs",
+    "test:build": "node test/deployment-build-smoke.mjs"
   },
   "dependencies": {
     "stripe": "23.0.0"
