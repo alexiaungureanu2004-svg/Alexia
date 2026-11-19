@@ -3,7 +3,8 @@
     "test:route": "node test/deployment-smoke.mjs",
     "test:build": "node test/deployment-build-smoke.mjs",
     "test:seo": "node test/seo-metadata.test.mjs",
-    "test:cookie-consent": "node --test test/cookie-consent.test.js"
+    "test:cookie-consent": "node --test test/cookie-consent.test.js",
+    "test:fit-flow": "node --test test/fit-flow.test.js"
   },
   "dependencies": {
     "stripe": "23.0.0"
