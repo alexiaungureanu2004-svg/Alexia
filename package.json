@@ -2,7 +2,8 @@
   "scripts": {
     "test:route": "node test/deployment-smoke.mjs",
     "test:build": "node test/deployment-build-smoke.mjs",
-    "test:seo": "node test/seo-metadata.test.mjs"
+    "test:seo": "node test/seo-metadata.test.mjs",
+    "test:cookie-consent": "node --test test/cookie-consent.test.js"
   },
   "dependencies": {
     "stripe": "23.0.0"
