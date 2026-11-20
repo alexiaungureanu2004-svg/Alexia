@@ -572,9 +572,11 @@ h1 em, h2 em { font-weight: 500; }
 }
 
 @media (max-width: 760px) {
-  .site-header { grid-template-columns: 38px minmax(0, 1fr) auto; gap: 8px; }
+  .site-header { grid-template-columns: 44px minmax(0, 1fr) auto; gap: 8px; }
   .wordmark { justify-self: center; white-space: nowrap; }
   .header-actions { min-width: 0; }
+  .site-header .icon-button { width: 44px; height: 44px; }
+  .site-header .bag-trigger { min-height: 44px; padding-inline: 4px; }
   .main-nav { max-height: calc(100svh - 72px); overflow-y: auto; }
   .hero-copy { min-width: 0; padding: 34px clamp(18px, 6vw, 28px) 38px; }
   .hero-copy .eyebrow { font-size: 8px; }
