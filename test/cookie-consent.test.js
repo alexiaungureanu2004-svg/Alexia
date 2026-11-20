@@ -72,23 +72,22 @@ test('panel is present with reject, customize, accept, details, and save actions
   for (const id of ['cookie-reject', 'cookie-customize', 'cookie-accept', 'cookie-details-toggle', 'cookie-analytics', 'cookie-save']) {
     assert.match(panel, new RegExp(`id="${id}"`));
   }
-  assert.match(panel, /id="cookie-banner"[^>]*\shidden/);
+  assert.match(panel, /id="cookie-copy"/);\n  assert.match(panel, /id="cookie-banner"[^>]*\shidden/);
   assert.match(panel, /aria-controls="cookie-details"/);
 });
 
-test('desktop and mobile styles constrain the panel footprint and keep details scrollable', () => {
+test('mobile panel keeps the full message visible and leaves preferences scrollable', () => {
   assert.match(css, /width:\s*min\(100%\s*-\s*48px,\s*480px\)/);
   assert.match(css, /max-height:\s*min\(78vh,\s*680px\)/);
   assert.match(css, /overflow-y:\s*auto/);
-  assert.match(css, /@media\s*\(max-width:\s*560px\)[\s\S]*?max-height:\s*min\(28vh,\s*240px\)/);
-  assert.match(css, /@media\s*\(max-width:\s*560px\)\s+and\s+\(max-height:\s*700px\)[\s\S]*?max-height:\s*min\(18vh,\s*126px\)/);
-  assert.match(css, /@media\s*\(max-width:\s*560px\)\s+and\s+\(max-height:\s*620px\)[\s\S]*?max-height:\s*min\(14vh,\s*84px\)/);
-  assert.match(css, /\.cookie-actions\s*\{[^}]*position:\s*sticky;[^}]*\}/);
-  assert.match(css, /\.cookie-button\s*\{[^}]*min-height:\s*46px;/);
-  assert.match(css, /\.cookie-details-toggle,\s*\.cookie-save\s*\{\s*min-height:\s*44px;/);
-  assert.ok(844 * 0.28 < 250, 'the panel cap on a typical phone stays below the hero image/title area');
+  const mobile = css.slice(css.indexOf('@media (max-width: 560px)'));
+  assert.match(mobile, /max-height:\s*min\(64dvh,\s*560px\)/);
+  assert.match(mobile, /grid-template-columns:\s*repeat\(3,\s*minmax\(0,\s*1fr\)\)/);
+  assert.match(mobile, /\.cookie-button\s*\{[^}]*min-height:\s*46px;/);
+  assert.match(mobile, /\.cookie-details-toggle\s*\{[^}]*min-height:\s*44px;/);
+  assert.doesNotMatch(mobile, /position:\s*sticky/);
+  assert.doesNotMatch(mobile, /max-height:\s*min\((?:28vh|18vh|14vh)/);
 });
-
 test('first visit shows the panel and reject saves a denied analytics choice', () => {
   const app = boot();
   assert.equal(app.elements['cookie-banner'].hidden, false);
