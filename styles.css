@@ -599,4 +599,20 @@ h1 em, h2 em { font-weight: 500; }
   .hero h1 { font-size: clamp(46px, 5.4vw, 66px); }
 }
 
-
+/* Mobile touch targets for interactive controls. */
+@media (max-width: 760px) {
+  .main-nav a { display: flex; align-items: center; min-height: 44px; }
+  .round-control { width: 44px; height: 44px; flex: 0 0 44px; }
+  .close-button { width: 44px; height: 44px; flex: 0 0 44px; }
+  .size-chip { width: 44px; height: 44px; flex: 0 0 44px; }
+  .size-row { gap: 4px; }
+  .add-button, .quiz-actions .button, .quiz-result .button { min-height: 44px; }
+  .save-button { min-height: 44px; }
+  .size-buttons span { width: 44px; height: 44px; }
+  .fit-step-controls .text-button, .clear-profile { min-height: 44px; }
+  .product-tryon-link { min-height: 44px; display: inline-flex; align-items: center; }
+  .order-info-action { min-height: 44px; }
+  .under-link { min-height: 44px; }
+  .filter-label select { min-height: 44px; }
+  .hero-buttons .text-button { min-height: 44px; }
+}
