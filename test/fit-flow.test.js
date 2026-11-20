@@ -6,14 +6,24 @@ const path = require('node:path');
 const root = path.resolve(__dirname, '..');
 const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
 const app = fs.readFileSync(path.join(root, 'app.js'), 'utf8');
+const checkout = fs.readFileSync(path.join(root, 'checkout.js'), 'utf8');
 
-test('how-it-works section explains standard/custom fit and confirmed atelier contact', () => {
-  const section = html.match(/<section class="made-section" id="cum-lucram"[\s\S]*?<\/section>/)?.[0];
+test('how-it-works section explains the confirmed product-to-test-checkout path', () => {
+  const section = html.match(/<section class="made-section" id="cum-lucram"[\\s\\S]*?<\\/section>/)?.[0];
   assert.ok(section, 'How-it-works section should exist.');
-  assert.match(section, /Selectează S, M sau L/);
-  assert.match(section, /bustul, talia și șoldul/);
-  assert.match(section, /se salvează doar în acest browser și nu este trimis automat odată cu comanda/);
-  assert.match(section, /Atelierul te contactează după confirmarea comenzii/);
+  assert.match(section, /Alege produsul și mărimea/);
+  assert.match(section, /una dintre mărimile disponibile S, M sau L/);
+  assert.match(section, /produsul, mărimea și cantitatea/);
+  assert.match(section, /nu este trimis automat la checkout/);
+  assert.match(section, /Plata de test nu încasează bani și nu creează o comandă de producție/);
+  assert.match(section, /Pentru o comandă reală confirmată, atelierul te contactează/);
+});
+
+test('checkout sends only cart product, selected size, and quantity; successful test payment is labeled as test', () => {
+  assert.match(checkout, /cart\\.map\\(\\(\\{ id, size, qty \\}\\) => \\(\\{ id, size, qty \\}\\)\\)/);
+  assert.match(checkout, /body: JSON\\.stringify\\(\\{ items, requestId: request\\.id \\}\\)/);
+  assert.match(checkout, /result\\.testMode \\? `Plată de test reușită/);
+  assert.match(checkout, /Nu au fost debitați bani și nu se expediază produse/);
 });
 
 test('main navigation links to the explanation and product cards show available sizes', () => {
