@@ -24,7 +24,7 @@ let searchSource = 'all';
 const $ = s => document.querySelector(s);
 const $$ = s => [...document.querySelectorAll(s)];
 
-function productCard(p){return `<article class="product-card" data-id="${p.id}"><div class="product-image"><img src="${p.image}" alt="${p.name}" loading="lazy"><span class="product-badge">${p.badge}</span><button class="save-button" aria-label="Salvează ${p.name} la favorite" data-fav="${p.id}" data-saved="false">SALVEAZĂ</button></div><div class="product-meta"><span class="product-name">${p.name}</span><span class="product-price">${money(p.price)}</span></div><div class="product-sub">${p.category} · mărimi ${p.sizes.join(', ')} · fiecare piesă este croită la comandă</div>${p.sourceUrl?`<a class="product-source-link" href="${p.sourceUrl}" target="_blank" rel="noopener">DETALIILE PRODUSULUI ↗</a>`:""}<div class="product-actions"><div class="size-row">${p.sizes.map((s,i)=>`<button class="size-chip ${i===1?'selected':''}" data-size="${s}" aria-label="Mărimea ${s}">${s}</button>`).join('')}</div><button class="add-button" data-add="${p.id}">ALEGE FIT-UL +</button></div><button class="product-tryon-link" type="button" data-open-tryon="${p.id}">Încearcă virtual ↗</button></article>`}
+function productCard(p){return `<article class="product-card" data-id="${p.id}"><div class="product-image">${window.LoomyProductImages.markup(p)}<span class="product-badge">${p.badge}</span><button class="save-button" aria-label="Salvează ${p.name} la favorite" data-fav="${p.id}" data-saved="false">SALVEAZĂ</button></div><div class="product-meta"><span class="product-name">${p.name}</span><span class="product-price">${money(p.price)}</span></div><div class="product-sub">${p.category} · mărimi ${p.sizes.join(', ')} · fiecare piesă este croită la comandă</div>${p.sourceUrl?`<a class="product-source-link" href="${p.sourceUrl}" target="_blank" rel="noopener">DETALIILE PRODUSULUI ↗</a>`:""}<div class="product-actions"><div class="size-row">${p.sizes.map((s,i)=>`<button class="size-chip ${i===1?'selected':''}" data-size="${s}" aria-label="Mărimea ${s}">${s}</button>`).join('')}</div><button class="add-button" data-add="${p.id}">ALEGE FIT-UL +</button></div><button class="product-tryon-link" type="button" data-open-tryon="${p.id}">Încearcă virtual ↗</button></article>`}
 function renderProducts(){
   $('#new-arrivals').innerHTML=products.map(productCard).join('');
   const visible=products.filter(p=>currentFilter==='Toate'||p.category===currentFilter);
@@ -47,6 +47,7 @@ function closeAll(){[$('#cart-drawer'),$('#measure-modal'),$('#search-modal')].f
 function openMeasurements(){openOverlay($('#measure-modal'))}
 function openCart(){updateCart();openOverlay($('#cart-drawer'))}
 function selectedSize(button){return button.closest('.product-card').querySelector('.size-chip.selected')?.dataset.size||'M'}
+document.addEventListener('error',window.LoomyProductImages.handleError,true);
 
 document.addEventListener('click',e=>{
   const add=e.target.closest('[data-add]');if(add){const card=add.closest('.product-card'),id=add.dataset.add,size=selectedSize(add);const item=cart.find(x=>x.id===id&&x.size===size);if(item)item.qty++;else cart.push({id,size,qty:1});updateCart();showToast('Piesa a fost adăugată în coș.');return}
