@@ -126,6 +126,10 @@ h1 em, h2 em { font-weight: 500; }
 .products-section #new-arrivals > .product-card { scroll-snap-align: start; }
 .product-card { min-width: 0; }
 .product-image { position: relative; aspect-ratio: .73; overflow: hidden; background: #e1ddd3; }
+.product-image-fallback { position: absolute; inset: 0; display: grid; place-items: center; padding: 18px; color: var(--muted); background: #e1ddd3; font-size: 10px; letter-spacing: .12em; text-align: center; text-transform: uppercase; }
+.product-image-fallback[hidden] { display: none; }
+.product-image-fallback::before { width: 30%; aspect-ratio: 1; border: 1px solid currentColor; content: ""; opacity: .45; }
+.product-image.image-unavailable .product-image-fallback { align-content: center; gap: 12px; }
 .product-image img { width: 100%; height: 100%; object-fit: cover; transition: transform .55s cubic-bezier(.2,.7,.3,1); }
 .product-card:hover .product-image img { transform: scale(1.035); }
 .product-badge { position: absolute; top: 12px; left: 12px; padding: 7px 9px; color: var(--ink); background: rgba(250,248,242,.94); font-size: 8px; letter-spacing: .11em; }
